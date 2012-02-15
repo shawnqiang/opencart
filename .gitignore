@@ -1,0 +1,5 @@
+php.ini
+download/*
+system/*
+config.php
+.htaccess.txt
