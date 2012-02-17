@@ -80,16 +80,17 @@ body { background: #FBFBFB;	color: #333333;	font-family: Georgia, Times, Serif; 
 /* LAYOUT
 ----------------------------------- */
 
-	#topdivider { background:#000; height:6px; } /* thick black line below main menu */ 
+	
 
 	#content_wrapper { /* main container with shadows */
 		border: 1px solid #CCC;
 		border-width: 0 1px 1px;
 		padding-bottom:10px;
 		background: #FFF;
-		webkit-box-shadow: 0 0 5px rgba(0,0,0,.2); 
-		-moz-box-shadow: 0 0 5px rgba(0,0,0,.2); 
-		box-shadow: 0 0 5px rgba(0,0,0,.2);
+		webkit-box-shadow: 0 2px 5px rgba(0,0,0,.2); 
+		-moz-box-shadow: 0 2px 5px rgba(0,0,0,.2); 
+		box-shadow: 0 2px 5px rgba(0,0,0,.2);
+		border-top:3px solid #900;
 	}
 		#maincontent { min-height: 350px; }
 			#maincontent .info_inner { padding:40px 60px 20px; }
@@ -125,18 +126,18 @@ body { background: #FBFBFB;	color: #333333;	font-family: Georgia, Times, Serif; 
 
 		html.range_2 #header .leftbox { width:310px; margin-left: 0; }
 		
-		html.range_1 #header #menu { width:720px; margin-top:10px;}
-		html.range_2 #header #menu { width:960px; margin-top:10px; }
+		html.range_1 #header #menu { width:720px; }
+		html.range_2 #header #menu { width:960px; }
 
 
-		#logo { text-align:center; padding:20px 0 0; }
+		#logo { text-align:left; padding:10px 0 0 0; }
 			#logo img {	display:inline; max-width: 100%;}
+				
 
-		#header .rightbox, #header .leftbox { position: relative; }
+		#utilityWrapper{position:relative; width:480px;}
 
 		/* Language and currency selector drop down */
-		#language_selector, #currency_selector { position: absolute; top:34px; left:0; }
-		#currency_selector { top:12px; }
+		
 
 		.dropd {
 			z-index: 10;
@@ -180,14 +181,14 @@ body { background: #FBFBFB;	color: #333333;	font-family: Georgia, Times, Serif; 
 	#cart { position: absolute; top: 0px; right: 0px; z-index: 150; }
 		
 		#cart .head {
-			margin: 4px 0 0;
+			margin: 11px 0 0;
 			padding: 8px 12px 10px;
 			border: 1px solid transparent;
 			border-bottom: 0;
 			position: relative;
 			line-height:1.4;
 		}
-			#cart .head h4 { margin: 0 0 3px; font-size:1em; }
+			#cart .head h4 { margin: 0 0 3px; font-size:1em; display:inline;}
 			#cart .head a { text-decoration: none; }
 			#cart .head a:hover { text-decoration:underline; }
 
@@ -260,7 +261,7 @@ body { background: #FBFBFB;	color: #333333;	font-family: Georgia, Times, Serif; 
 
 	/* Header search box*/
 
-	#search { margin-top: 64px; }
+	#search { margin-top:15px;}
 
 		#search .searchbox {
 			width: 99%;
@@ -295,7 +296,7 @@ body { background: #FBFBFB;	color: #333333;	font-family: Georgia, Times, Serif; 
 
 			/* Welcome and Links */
 
-			#welcome { color: #999; margin:12px 0 8px; line-height:1.2em; font-size:11px; font-family:sans-serif; }
+			#welcome { color: #999; margin:10px 0 10px; height:40px; line-height:40px; font-size:11px; font-family:sans-serif; }
 
 			/*#links { position: absolute; top:36px;}*/
 				#links a + a { margin-left: 6px; padding-left: 6px; border-left: 1px solid #DDD; }
@@ -311,11 +312,11 @@ body { background: #FBFBFB;	color: #333333;	font-family: Georgia, Times, Serif; 
 
 		#menu span.top-arrow { /* Menu for mobiles */
 			background: url(../images/top-arrow.png) no-repeat center top;
-			display: block;
+			display: none;
 			width: 24px;
 			height: 13px;
 			position: absolute;
-			top: -9px;
+			bottom: -5px;
 			left: 20px;
 		}
 
@@ -340,7 +341,7 @@ body { background: #FBFBFB;	color: #333333;	font-family: Georgia, Times, Serif; 
 					position: relative;
 				}
 				#menu > ul > li:hover > a { color:#888; }
-				
+				#menu > ul > li:hover > a span.top-arrow{display:block;}
 				#menu > ul > li > div {
 					display: none;
 					background: #FFFFFF;
@@ -373,7 +374,7 @@ body { background: #FBFBFB;	color: #333333;	font-family: Georgia, Times, Serif; 
 
 	/* Page heading*/
 	.heading { border-bottom:1px solid #CCC; margin-bottom:10px; text-align:center; }
-		.heading h1 { margin:0.34em 0 0.82em;}
+		.heading h1 { margin:0 0 5px 0;}
 
 	/* Breadcrumbs */
 	.breadcrumb { color: #CCC; font-size:11px; padding:6px 0; font-family: sans-serif;}

@@ -4,9 +4,7 @@
 <head>
 
 	<title><?php echo $title; ?></title>
-	
 	<base href="<?php echo $base; ?>" />
-
 	<meta charset="utf-8" />
 
 	<!-- Palm -->
@@ -15,15 +13,15 @@
 	<meta name="MobileOptimized" content="320" />
 	<!-- Safari, Android, BB, Opera -->
 	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />
-	
+	<!-- Description -->		
 	<?php if ($description) { ?>
 	<meta name="description" content="<?php echo $description; ?>" />
 	<?php } ?>
-
+	<!-- Keywords -->
 	<?php if ($keywords) { ?>
 	<meta name="keywords" content="<?php echo $keywords; ?>" />
 	<?php } ?>
-
+	<!-- Icon -->
 	<?php if ($icon) { ?>
 	<link href="<?php echo $icon; ?>" rel="icon" />
 	<?php } ?>
@@ -60,7 +58,7 @@
 			'980px            = 960.min.css'
 		]
 	};
-</script>
+	</script>
 
 <script type="text/javascript" src="catalog/view/theme/sellegance/js/adapt.min.js"></script>
 
@@ -314,155 +312,123 @@ if($this->config->get('sellegance_status')== 1) {
 </head>
 
 <body class="slt">
+	<!-- Notification -->
+	<div id="notification"></div>
+	<!-- Shortcut -->
+	<div id="shortcut">
+		<div class="container_12">
 
-	<div id="header" class="container_12">
-
-		<div id="logo" class="grid_4 push_4">
-			<?php if ($logo) { ?>
-			 <a href="<?php echo $home; ?>"><img src="<?php echo $logo; ?>" title="<?php echo $name; ?>" alt="<?php echo $name; ?>" /></a>
-			
-			<?php } ?>
 		</div>
-
-		<div class="grid_4 push_4 rightbox">
-
-			<div id="cart">
-				<div class="head">
-					<div class="inner">
-						<h4><a href="<?php echo $cart; ?>"><?php echo $text_cart; ?></a></h4>
-						<a id="cart_total"><?php echo $text_items; ?></a>
-					</div>
-				</div>
-				<div class="content"></div>
-			</div>
-
-			<div id="search">
-				
-				<div class="searchbox">
-					<?php if ($filter_name) { ?>
-						<input type="text" name="filter_name" value="<?php echo $filter_name; ?>" />
-					<?php } else { ?>
-						<input type="text" name="filter_name" value="<?php echo $text_search; ?>" onclick="this.value = '';" onkeydown="this.style.color = '#000000';" />
-					<?php } ?>
-					<button type="button" class="button-search button"></button>
-				</div>
-
-			</div>
-
-			<div id="wrapselector"><?php if ($languages && count($languages) > 1){ ?>
-					<form action="<?php echo $action; ?>" method="post" id="language_form"enctype="multipart/form-data">
-						<div id="language_selector" class="dropd">
-							<?php foreach ($languages as $language) { ?>
-								<?php if ($language['code'] == $language_code) { ?>
-								<span class="selected"><img src="image/flags/<?php echo $language['image']; ?>" alt="<?php echo $language['name']; ?>" /> <?php echo $language['name']; ?></span>
-								<?php } ?>
-							<?php } ?>
-							<ul class="options">
-								<?php foreach ($languages as $language) { ?>
-								<li>
-									<a href="javascript:;" onclick="$('input[name=\'language_code\']').attr('value', '<?php echo $language['code']; ?>'); $('#language_form').submit();">
-										<img src="image/flags/<?php echo $language['image']; ?>" alt="<?php echo $language['name']; ?>" /> <?php echo $language['name']; ?>
-									</a>
-								</li>
-								<?php } ?>
-							</ul>
-						</div>
-						<input type="hidden" name="language_code" value="" />
-						<input type="hidden" name="redirect" value="<?php echo $redirect; ?>" />
-					</form>
-				<?php } ?>		
-				
-				<?php if (count($currencies) > 1) { ?>
-					<form action="<?php echo $action; ?>" method="post" id="currency_form">
-						<div id="currency_selector" class="dropd">
-							<?php foreach ($currencies as $currency) { ?>
-								<?php if ($currency['code'] == $currency_code) { ?>
-								<span class="selected"><?php echo $currency['title']; ?></span>
-								<?php } ?>
-							<?php } ?>
-							<ul class="options">
-								<?php foreach ($currencies as $currency){ ?>
-								<li>
-									<a href="javascript:;" onclick="$('input[name=\'currency_code\']').attr('value', '<?php echo $currency['code']; ?>'); $('#currency_form').submit();"><?php echo $currency['title']; ?></a>
-								</li>
-								<?php } ?>
-							</ul>
-						</div>
-				
-						<div>
-							<input type="hidden" name="currency_code" value="" />
-							<input type="hidden" name="redirect" value="<?php echo $redirect; ?>" />
-						</div>
-					</form>
-				<?php } ?></div>
-
-		</div> <!-- .rightbox -->
-
-		<div class="grid_4 pull_8 leftbox">
-
-			<div id="welcome">
-				<?php if (!$logged) { ?>
-				<?php echo $text_welcome; ?>
-				<?php } else { ?>
-				<?php echo $text_logged; ?>
+	</div>
+	<!-- Header --> 	
+	<div id="header"> 
+		<div class="container_12">
+			<div class="clearfix">
+			<div id="logo" class="grid_3 alpha">
+				<?php if ($logo) { ?>
+				 <a href="<?php echo $home; ?>"><img src="<?php echo $logo; ?>" title="<?php echo $name; ?>" alt="<?php echo $name; ?>" /></a>
 				<?php } ?>
 			</div>
 
-			<div id="links">
-				<a href="<?php echo $cart; ?>"><?php echo $text_cart; ?></a>
-				<a href="<?php echo $checkout; ?>"><?php echo $text_checkout; ?></a>
-				<a href="<?php echo $account; ?>"><?php echo $text_account; ?></a>
+			<div class="grid_3" id="searchWrapper">
+
+				<div id="search">
+					
+					<div class="searchbox">
+						<?php if ($filter_name) { ?>
+							<input type="text" name="filter_name" value="<?php echo $filter_name; ?>" />
+						<?php } else { ?>
+							<input type="text" name="filter_name" value="<?php echo $text_search; ?>" onclick="this.value = '';" onkeydown="this.style.color = '#000000';" />
+						<?php } ?>
+						<button type="button" class="button-search button"></button>
+					</div>
+
+				</div>
+
+				
+
+			</div> <!-- .rightbox -->
+
+			<div class="grid_6 omega" id="utilityWrapper">
+				
+			<div id="welcome">
+					<?php if (!$logged) { ?>
+					<?php echo $text_welcome; ?>
+					<?php } else { ?>
+					<?php echo $text_logged; ?>
+					<?php } ?>
 			</div>
 
-			<div id="optmenu" style="display:none">
-					<h3 class="menuarrow"><span>Menu</span></h3>
-					<ul class="menumob" style="display:none">
-						<?php foreach ($categories as $category) { ?>
-							<li class="main"><a href="<?php echo $category['href']; ?>"><?php echo $category['name']; ?></a></li>
-							<?php if ($category['children']) { ?>
-								<?php for ($i = 0; $i < count($category['children']); $i++) { ?>
-									<?php if (isset($category['children'][$i])) { ?>
-									<li><a href="<?php echo $category['children'][$i]['href']; ?>">&nbsp;&nbsp;&nbsp;<?php echo $category['children'][$i]['name']; ?></a></li>
+			<div id="cart">
+					<div class="head">
+						<div class="inner">
+							<h4><a href="<?php echo $cart; ?>"><?php echo $text_cart; ?></a></h4>
+							<a id="cart_total"><?php echo $text_items; ?></a>
+						</div>
+					</div>
+					<div class="content"></div>
+			</div>	
+				<!-- hide links
+				<div id="links">
+					<a href="<?php echo $cart; ?>"><?php echo $text_cart; ?></a>
+					<a href="<?php echo $checkout; ?>"><?php echo $text_checkout; ?></a>
+					<a href="<?php echo $account; ?>"><?php echo $text_account; ?></a>
+				</div>
+				-->
+
+				<div id="optmenu" style="display:none">
+						<h3 class="menuarrow"><span>Menu</span></h3>
+						<ul class="menumob" style="display:none">
+							<?php foreach ($categories as $category) { ?>
+								<li class="main"><a href="<?php echo $category['href']; ?>"><?php echo $category['name']; ?></a></li>
+								<?php if ($category['children']) { ?>
+									<?php for ($i = 0; $i < count($category['children']); $i++) { ?>
+										<?php if (isset($category['children'][$i])) { ?>
+										<li><a href="<?php echo $category['children'][$i]['href']; ?>">&nbsp;&nbsp;&nbsp;<?php echo $category['children'][$i]['name']; ?></a></li>
+										<?php } ?>
 									<?php } ?>
 								<?php } ?>
 							<?php } ?>
-						<?php } ?>
-					</ul>
-			 </div>
+						</ul>
+				 </div>
+				
+			</div> <!-- .leftbox -->
+			</div>
 			
-		</div> <!-- .leftbox -->
-
-<?php if ($categories) { ?>
-	
-	<div id="menu" class="grid_12 clearfix">
-		<ul>
-			<li><a href="<?php echo $home; ?>"><img src="catalog/view/theme/sellegance/images/home.png"  title="<?php echo $text_home; ?>" alt="<?php echo $text_home; ?>" /></a></li>
-			<?php foreach ($categories as $category) { ?>
-			<li><a href="<?php echo $category['href']; ?>"><?php echo $category['name']; ?></a>
-				<?php if ($category['children']) { ?>
-				<div>
-					<span class="top-arrow"></span>
-					<?php for ($i = 0; $i < count($category['children']);) { ?>
+			
+			
+			<?php if ($categories) { ?>
+				
+				<div id="menu" class="grid_12 clearfix">
 					<ul>
-						<?php $j = $i + ceil(count($category['children']) / $category['column']); ?>
-						<?php for (; $i < $j; $i++) { ?>
-						<?php if (isset($category['children'][$i])) { ?>
-						<li><a href="<?php echo $category['children'][$i]['href']; ?>"><?php echo $category['children'][$i]['name']; ?></a></li>
-						<?php } ?>
+						<li><a href="<?php echo $home; ?>"><img src="catalog/view/theme/sellegance/images/home.png"  title="<?php echo $text_home; ?>" alt="<?php echo $text_home; ?>" /></a></li>
+						<?php foreach ($categories as $category) { ?>
+						<li><a href="<?php echo $category['href']; ?>"><?php echo $category['name']; ?>
+						<?php if ($category['children']) { ?><span class="top-arrow"></span><?php } ?></a>
+							<?php if ($category['children']) { ?>
+							<div>
+								
+								<?php for ($i = 0; $i < count($category['children']);) { ?>
+								<ul>
+									<?php $j = $i + ceil(count($category['children']) / $category['column']); ?>
+									<?php for (; $i < $j; $i++) { ?>
+									<?php if (isset($category['children'][$i])) { ?>
+									<li><a href="<?php echo $category['children'][$i]['href']; ?>"><?php echo $category['children'][$i]['name']; ?></a></li>
+									<?php } ?>
+									<?php } ?>
+								</ul>
+								<?php } ?>
+							</div>
+							<?php } ?>
+						</li>
 						<?php } ?>
 					</ul>
-					<?php } ?>
-				</div>
-				<?php } ?>
-			</li>
+					
+				</div><!-- #menu -->
+
 			<?php } ?>
-		</ul>
-		
-	</div><!-- #menu -->
+		</div>
+	</div><!-- #header -->
 
-<?php } ?>
-
-</div> <!-- #header -->
-
-<div id="content_wrapper" class="container_12 clearfix">
-	<div id="topdivider" class="clearfix"></div>
+	<div id="content_wrapper" class="container_12 clearfix">
+		<!--<div id="topdivider" class="clearfix"></div>-->
