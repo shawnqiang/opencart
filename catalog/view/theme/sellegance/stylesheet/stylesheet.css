@@ -103,7 +103,7 @@ body { background: #f7f7f7;	color: #333333;	font-family: Georgia, Times, Serif; 
 ----------------------------------- */
 
 	#header { 
-			position: relative; z-index: 99; 
+			position: relative; z-index: 99999; 
 			margin-bottom: 10px;
 			background-color: rgba(245, 245, 245, 0.6);
 			box-shadow: 0 2px 4px rgba(200,200,200,0.5);
