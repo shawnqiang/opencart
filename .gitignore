@@ -4,5 +4,6 @@ system/*
 config.php
 .htaccess.txt
 image/cache/*
+image/data/*
 .htaccess
-vqmod/*
+vqmod/vqcache/*
