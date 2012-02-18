@@ -13,7 +13,7 @@
 		<div id="notification"></div>
 	</div>
 
-	<div id="maincontent" class="grid_10 push_1">
+	<div id="maincontent" class="grid_12">
 
 		<?php if ($products) { ?>
 

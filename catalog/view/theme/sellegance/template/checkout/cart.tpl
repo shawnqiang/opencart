@@ -28,7 +28,7 @@
 
 	</div>
 
-	<div class="cart-info grid_10 push_1 clearfix">
+	<div class="cart-info grid_12 clearfix">
 		
 		<form action="<?php echo $action; ?>" method="post" enctype="multipart/form-data" id="basket">
 			
@@ -110,7 +110,7 @@
 
 	</div> <!-- .cart-info -->
 
-	<div class="cart-total grid_4 push_7">
+	<div class="cart-total grid_4 push_8">
 
 		<div class="inner">
 		
@@ -135,9 +135,9 @@
 
 	</div> <!-- .cart-total -->
 
-	<div class="cart-module grid_6 pull_3">
+	<div class="cart-module grid_6 pull_4">
 
-		<div class="buttons">
+		<div class="buttons" style="text-align:left;">
 			<a onclick="$('#basket').submit();" class="button" id="button-update"><span><?php echo $button_update; ?></span></a>
 			<a href="<?php echo $continue; ?>" class="button black"><span><?php echo $button_shopping; ?></span></a>
 		</div>

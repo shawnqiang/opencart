@@ -8,35 +8,45 @@
 		<?php } ?>
 	</div>
 	
-	<div class="heading grid_12">
+	
+
+	<?php ($column_left) ? $main = "push_3" : $main=""; ?>
+
+	<div id="maincontent" class="grid_9 <?php echo $main; ?>">
+		<div class="heading">
 		
 		<h1><?php echo $heading_title; ?></h1>
 		<?php if ($success) { ?>
 			<div class="success"><?php echo $success; ?></div>
 		<?php } ?>
 
-	</div>
-
-	<?php ($column_left) ? $main = "push_3" : $main=""; ?>
-
-	<div id="maincontent" class="grid_9 <?php echo $main; ?>">
-
+		</div>
+		<div class="mod">
 		<div class="contentset"><div class="inner"><span><?php echo $text_my_account; ?></span></div></div>
+		<div class="mod-bd">
 		<ul class="list">
 			<li><a href="<?php echo $edit; ?>"><?php echo $text_edit; ?></a></li>
 			<li><a href="<?php echo $password; ?>"><?php echo $text_password; ?></a></li>
 			<li><a href="<?php echo $payment; ?>"><?php echo $text_payment; ?></a></li>
 		</ul>
-
+		</div>
+		</div>
+		<div class="mod">
 		<div class="contentset"><div class="inner"><span><?php echo $text_my_tracking; ?></span></div></div>
+		<div class="mod-bd">
 		<ul class="list">
 			<li><a href="<?php echo $tracking; ?>"><?php echo $text_tracking; ?></a></li>
 		</ul>
-
+		</div>
+		</div>
+		<div class="mod">
 		<div class="contentset"><div class="inner"><span><?php echo $text_my_transactions; ?></span></div></div>
+		<div class="mod-bd">
 		<ul class="list">
 			<li><a href="<?php echo $transaction; ?>"><?php echo $text_transaction; ?></a></li>
 		</ul>
+		</div>
+		</div>
 
 	</div> <!-- #maincontent -->
 

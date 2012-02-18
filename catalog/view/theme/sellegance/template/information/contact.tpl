@@ -11,24 +11,25 @@
 	<div class="heading grid_12">
 		<h1><?php echo $heading_title; ?></h1>
 	</div>
-
+	<!-- 
 	<?php ($column_left) ? $main = "push_3" : $main=""; ?>
-
-	<div id="maincontent" class="grid_9 <?php echo $main; ?>">
+	-->
+	<div id="maincontent" class="grid_12">
 
 		<form action="<?php echo $action; ?>" method="post" enctype="multipart/form-data" id="contact">
-
+			<div class="grid_3 alpha">
+			<div class="mod">
 			<fieldset class="subheading">
 				
 				<legend><?php echo $text_location; ?></legend>
 			
-				<div class="grid_4 alpha">
+				<div>
 					<b><?php echo $text_address; ?></b><br />
 					<?php echo $store; ?><br />
 					<?php echo $address; ?>
 				</div>
 			
-				<div class="grid_4 omega">
+				<div>
 					<?php if ($telephone) { ?>
 						<b><?php echo $text_telephone; ?></b><br />
 						<?php echo $telephone; ?><br />
@@ -41,7 +42,10 @@
 				</div>
 
 			</fieldset>
-
+			</div>
+			</div>
+			<div class="grid_9 omega">
+			<div class="mod">
 			<fieldset class="subheading">
 
 				<legend><?php echo $text_contact; ?></legend>
@@ -69,7 +73,7 @@
 				<div class="field_row">
 					<label for="enquiry" class="lbl"><span class="req_mark">*</span> <?php echo $entry_enquiry; ?></label>
 					<div class="fld">
-						<textarea name="enquiry" cols="60" rows="10" title="<?php echo $this->language->get('error_enquiry'); ?>" class="required"><?php echo $enquiry; ?></textarea>
+						<textarea name="enquiry" cols="50" rows="10" title="<?php echo $this->language->get('error_enquiry'); ?>" class="required"><?php echo $enquiry; ?></textarea>
 						<?php if ($error_enquiry) { ?>
 						<span class="error"><?php echo $error_enquiry; ?></span>
 						<?php } ?>
@@ -88,16 +92,18 @@
 				</div>
 			
 			</fieldset>
-
 			<div class="buttons">
 			  <a onclick="$('#contact').submit();" class="button black"><span><?php echo $button_continue; ?></span></a>
 			</div>
+			</div>
+			</div>
+			
   
 		</form>
 		
 	</div> <!-- #maincontent -->
 
-	<?php echo $column_left; ?>
+	<!-- <?php echo $column_left; ?> -->
 	<?php echo $column_right; ?>
 
 	<?php echo $content_bottom; ?>

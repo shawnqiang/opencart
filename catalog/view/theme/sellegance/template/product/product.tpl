@@ -341,7 +341,7 @@
 
 					<label><strong><?php echo $entry_review; ?></strong></label>
 					<br />
-					<textarea name="text" cols="60" rows="8" ></textarea>
+					<textarea name="text" cols="50" rows="8" ></textarea>
 					<br />
 
 					<span class="html_note"><?php echo $text_note; ?></span><br /><br />

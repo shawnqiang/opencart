@@ -8,19 +8,21 @@
 		<?php } ?>
 	</div>
 	
-	<div class="heading grid_12">
+	
+
+	<?php ($column_left) ? $main = "push_3" : $main=""; ?>
+
+	<div id="maincontent" class="grid_9 <?php echo $main; ?>">
+		<div class="heading">
 		
 		<h1><?php echo $heading_title; ?></h1>
 		<?php if ($error_warning) { ?>
 		<div class="warning"><?php echo $error_warning; ?></div>
 		<?php } ?>
 
-	</div>
-
-	<?php ($column_left) ? $main = "push_3" : $main=""; ?>
-
-	<div id="maincontent" class="grid_9 <?php echo $main; ?>">
-
+		</div>
+		<div class="mod">
+		<div class="mod-bd">
 		<table class="list order-info">
 			<thead>
 				<tr>
@@ -157,7 +159,8 @@
 		<div class="buttons">
 			<a href="<?php echo $continue; ?>" class="button black"><span><?php echo $button_continue; ?></span></a>
 		</div>
-
+		</div>
+		</div>
 	</div> <!-- #maincontent -->
 
 	<?php echo $column_left; ?>

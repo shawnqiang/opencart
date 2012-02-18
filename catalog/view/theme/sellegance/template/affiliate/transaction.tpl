@@ -8,14 +8,16 @@
     <?php } ?>
   </div>
   
-  <div class="heading grid_12">
-    <h1><?php echo $heading_title; ?></h1>
-  </div>
+ 
 
   <?php ($column_left) ? $main = "push_3" : $main=""; ?>
 
   <div id="maincontent" class="grid_9 <?php echo $main; ?>">
-
+     <div class="heading ">
+        <h1><?php echo $heading_title; ?></h1>
+     </div>
+    <div class="mod">
+      <div class="mod-bd">
     <p><?php echo $text_balance; ?><b> <?php echo $balance; ?></b>.</p>
     <table class="list">
       <thead>
@@ -47,7 +49,8 @@
     <div class="buttons">
       <a href="<?php echo $continue; ?>" class="button black"><span><?php echo $button_continue; ?></span></a>
     </div>
-
+    </div>
+    </div>
   </div> <!-- #maincontent -->
   
   <?php echo $column_left; ?>

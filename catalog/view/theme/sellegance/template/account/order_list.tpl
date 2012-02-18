@@ -16,6 +16,8 @@
 		<div class="heading">
 		<h1><?php echo $heading_title; ?></h1>
 		</div>
+		<div class="mod">
+		<div class="mod-bd">
 		<?php if ($orders) { ?>
 			<?php foreach ($orders as $order) { ?>
 				<div class="order-list">
@@ -42,7 +44,8 @@
 		<div class="buttons">
 			<a href="<?php echo $continue; ?>" class="button black"><span><?php echo $button_continue; ?></span></a>
 		</div>
-
+		</div>
+		</div>
 	</div> <!-- #maincontent -->
 
 	<?php echo $column_left; ?>

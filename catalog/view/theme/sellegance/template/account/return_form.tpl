@@ -16,6 +16,8 @@
 		<div class="heading">
 		<h1><?php echo $heading_title; ?></h1>
 		</div>
+		<div class="mod">
+		<div class="mod-bd">
 		<?php echo $text_description; ?>
 
 		<form action="<?php echo $action; ?>" method="post" enctype="multipart/form-data" id="return">
@@ -187,6 +189,7 @@
 					<div class=""><a onclick="addReturnProduct();" class="button small black" id="add_product"><span><?php echo $button_add_product; ?></span></a></div>
 				</div>
 
+
 			</fieldset>
 
 			<fieldset class="subheading">
@@ -224,7 +227,8 @@
 			</div>
 			
 		</form>
-
+		</div>
+		</div>
 	</div> <!-- #maincontent -->
 
 	<?php echo $column_left; ?>

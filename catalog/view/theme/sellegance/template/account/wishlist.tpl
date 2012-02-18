@@ -17,6 +17,7 @@
     <h1><?php echo $heading_title; ?></h1>
     <div id="notification"></div>
     </div>
+    <div class="mod">
     <?php if ($products) { ?>
 
     <form action="<?php echo $action; ?>" method="post" enctype="multipart/form-data" id="wishlist">
@@ -71,7 +72,7 @@
     </div>
 
     <?php } ?>
-
+    </div>
   </div> <!-- #maincontent -->
 
   <?php echo $column_left; ?>
