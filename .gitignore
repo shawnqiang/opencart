@@ -7,3 +7,4 @@ image/cache/*
 image/data/*
 .htaccess
 vqmod/vqcache/*
+vqmod/vqmod.log
