@@ -8,15 +8,15 @@
     <?php } ?>
   </div>
   
-  <div class="heading grid_12">
-    <h1><?php echo $heading_title; ?></h1>
-    <div id="notification"></div>
-  </div>
+  
 
   <?php ($column_left) ? $main = "push_3" : $main=""; ?>
 
   <div id="maincontent" class="grid_9 <?php echo $main; ?>">
-
+    <div class="heading">
+    <h1><?php echo $heading_title; ?></h1>
+    <div id="notification"></div>
+    </div>
     <?php if ($products) { ?>
 
     <form action="<?php echo $action; ?>" method="post" enctype="multipart/form-data" id="wishlist">

@@ -295,9 +295,9 @@ class ControllerAccountRegister extends Controller {
       		$this->error['warning'] = $this->language->get('error_exists');
     	}
 		
-    	if ((utf8_strlen($this->request->post['telephone']) < 3) || (utf8_strlen($this->request->post['telephone']) > 32)) {
-      		$this->error['telephone'] = $this->language->get('error_telephone');
-    	}
+    	/* if ((utf8_strlen($this->request->post['telephone']) < 3) || (utf8_strlen($this->request->post['telephone']) > 32)) {
+       		$this->error['telephone'] = $this->language->get('error_telephone');
+    	 } 
 
     	if ((utf8_strlen($this->request->post['address_1']) < 3) || (utf8_strlen($this->request->post['address_1']) > 128)) {
       		$this->error['address_1'] = $this->language->get('error_address_1');
@@ -322,7 +322,7 @@ class ControllerAccountRegister extends Controller {
     	if ($this->request->post['zone_id'] == '') {
       		$this->error['zone'] = $this->language->get('error_zone');
     	}
-
+    	*/
     	if ((utf8_strlen($this->request->post['password']) < 4) || (utf8_strlen($this->request->post['password']) > 20)) {
       		$this->error['password'] = $this->language->get('error_password');
     	}

@@ -8,19 +8,20 @@
 		<?php } ?>
 	</div>
   
-	<div class="heading grid_12">
+	
+
+	<?php ($column_left) ? $main = "push_3" : $main=""; ?>
+
+	<div id="maincontent" class="grid_9 <?php echo $main; ?>">
+		<div class="heading">
 		
 		<h1><?php echo $heading_title; ?></h1>
 		<?php if ($error_warning) { ?>
 		<div class="warning"><?php echo $error_warning; ?></div>
 		<?php } ?>
 
-	</div>
-
-	<?php ($column_left) ? $main = "push_3" : $main=""; ?>
-
-	<div id="maincontent" class="grid_9 <?php echo $main; ?>">
-
+		</div>
+		<div class="mod">
 		<form action="<?php echo $action; ?>" method="post" enctype="multipart/form-data" id="edit">
 	
 			<fieldset class="subheading">
@@ -83,6 +84,7 @@
 			</div>
   
 		</form>
+		</div>
 
 	</div> <!-- #maincontent -->
 

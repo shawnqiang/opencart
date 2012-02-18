@@ -8,8 +8,8 @@
 		<?php } ?>
 	</div>
 
-	<div class="heading grid_12">
-		<h1><?php echo $heading_title; ?></h1>
+	<div class="grid_12">
+		
 		<div id="notification"></div>
 	</div>
 
@@ -17,6 +17,10 @@
 
 	<div id="maincontent" class="grid_9 <?php echo $main; ?>">
 
+	<div class="heading">
+		<h1><?php echo $heading_title; ?></h1>
+		
+	</div>
 	<?php if ($thumb || $description) { ?>
 	<div class="category-info">
 		<?php if ($thumb) { ?>
@@ -27,6 +31,7 @@
 		<?php } ?>
 	</div>
 	<?php } ?>
+	<!--
 	<?php if ($categories) { ?>
 	<div class="contentset"><div class="inner"><span><?php echo $text_refine; ?></span></div></div>
 	<div class="category-list">
@@ -49,7 +54,7 @@
 		<?php } ?>
 		<?php } ?>
 	</div>
-	<?php } ?>
+	<?php } ?> -->
 	<?php if ($products) { ?>
 	<div class="product-filter">
 		<ul class="display"><li id="list" class="active"><span class="icon"></span><?php echo $text_list; ?></li><li id="grid"><a onclick="display(\'grid\');"><span class="icon"></span><?php echo $text_grid; ?></a></li></ul>

@@ -12,7 +12,7 @@
     <h1><?php echo $heading_title; ?></h1>
   </div>
 
-    <?php if ($column_left) $main = "grid_9 push_3";
+    <?php if ($column_left) $main = "grid_8 push_2";
       else if ($column_right) $main = "grid_9";
       else $main="grid_6 push_3" ?>
 
@@ -26,7 +26,7 @@
 
   </div>
 
-  <?php echo $column_left; ?>
+  <!--<?php echo $column_left; ?>-->
   <?php echo $column_right; ?>
 
   <?php echo $content_bottom; ?>

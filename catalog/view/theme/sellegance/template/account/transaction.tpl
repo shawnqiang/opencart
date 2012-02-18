@@ -8,14 +8,14 @@
 		<?php } ?>
 	</div>
 	
-	<div class="heading grid_12">
-		<h1><?php echo $heading_title; ?></h1>
-	</div>
+	
 
 	<?php ($column_left) ? $main = "push_3" : $main=""; ?>
 
 	<div id="maincontent" class="grid_9 <?php echo $main; ?>">
-
+		<div class="heading">
+			<h1><?php echo $heading_title; ?></h1>
+		</div>
 		<p><?php echo $text_total; ?><b> <?php echo $total; ?></b>.</p>
 
 		<table class="list">

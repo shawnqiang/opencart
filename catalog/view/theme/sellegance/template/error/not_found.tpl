@@ -8,16 +8,16 @@
 		<?php } ?>
 	</div>
 	 
-	 <div class="heading grid_12">
-		<h1><?php echo $heading_title; ?></h1>
-	</div>
+	 
 
 	<?php if ($column_left) $main = "grid_9 push_3";
 		  else if ($column_right) $main = "grid_9";
 		  else $main="grid_12" ?>
 
 	<div id="maincontent" class="<?php echo $main; ?>">
-
+		<div class="heading">
+			<h1><?php echo $heading_title; ?></h1>
+		</div>
 		<div class="cart-empty">
 			
 			<p><?php echo $text_error; ?></p>

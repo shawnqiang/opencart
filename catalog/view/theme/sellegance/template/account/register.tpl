@@ -17,9 +17,9 @@
 
 	</div>
 
-	<?php ($column_left) ? $main = "push_3" : $main=""; ?>
+	<?php ($column_left) ? $main = "push_2" : $main=""; ?>
 
-	<div id="maincontent" class="grid_9 <?php echo $main; ?>">
+	<div id="maincontent" class="grid_8 <?php echo $main; ?>">
 	
 		<p><?php echo $text_account_already; ?></p>
 
@@ -59,7 +59,7 @@
 						<?php } ?>
 					</div>
 				</div>
-
+				<!-- remove fax info
 				<div class="field_row">
 					<label for="telephone" class="lbl"><span class="req_mark">*</span> <?php echo $entry_telephone; ?></label>
 					<div class="fld">
@@ -69,16 +69,16 @@
 						<?php } ?>
 					</div>
 				</div>
-
+				
 				<div class="field_row">
 					<label for="fax" class="lbl"><?php echo $entry_fax; ?></label>
 					<div class="fld">
 						<input type="text" name="fax" value="<?php echo $fax; ?>" size="30" />
 					</div>
 				</div>
-
+				-->
 			</fieldset>
-
+			<!-- remove the address info 
 			<fieldset class="subheading">
 
 				<legend><?php echo $text_your_address; ?></legend>
@@ -158,7 +158,7 @@
 				</div>
 
 			</fieldset>
-
+			-->
 			<fieldset class="subheading">
 
 				<legend><?php echo $text_your_password; ?></legend>
@@ -224,7 +224,7 @@
 		</form>
 	</div> <!-- #maincontent -->
 
-	<?php echo $column_left; ?>
+	<!--<?php echo $column_left; ?>-->
 	<?php echo $column_right; ?>
 
 	<?php echo $content_bottom; ?>

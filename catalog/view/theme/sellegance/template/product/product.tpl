@@ -7,8 +7,7 @@
 		<?php } ?>
 	</div>
 
-	<div class="heading grid_12">
-		<h1><?php echo $heading_title; ?></h1>
+	<div class="grid_12">
 		<div id="notification"></div>
 	</div>
 
@@ -55,6 +54,9 @@
 		</div>
 		<?php } ?>
 		<div class="grid_<?php echo $desc; ?> omega">
+			<div class="heading">
+				<h1><?php echo $heading_title; ?></h1>
+			</div>
 			
 			<?php if ($price) { ?>
 			<div class="price">

@@ -312,14 +312,8 @@ if($this->config->get('sellegance_status')== 1) {
 </head>
 
 <body class="slt">
-	<!-- Notification -->
-	<div id="notification"></div>
-	<!-- Shortcut -->
-	<div id="shortcut">
-		<div class="container_12">
-
-		</div>
-	</div>
+	
+	
 	<!-- Header --> 	
 	<div id="header"> 
 		<div class="container_12">

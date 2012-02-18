@@ -3,6 +3,6 @@ download/*
 system/*
 config.php
 .htaccess.txt
-image/cache/data/*
+image/cache/*
 .htaccess
 vqmod/*

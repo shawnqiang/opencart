@@ -24,7 +24,7 @@ body { background: #FBFBFB;	color: #333333;	font-family: Georgia, Times, Serif; 
 
 	h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5 { font-weight: 500; }
 	h1 a, .h1 a, h2 a, .h2 a, h3 a, .h3 a, h4 a, .h4 a, h5 a, .h5 a { text-decoration: none; }
-	h1, .h1 { font-size: 2.5em; line-height: 1.333em; }
+	h1, .h1 { font-size: 28px; line-height: 1em; }
 	h2, .h2 { font-size: 1.75em; line-height: 1.4em; margin-bottom: 0.375em; }
 	h3, .h3 { font-size: 1.125em; }
 	h4, .h4 { font-size: 1.1em; font-weight: 700; }
@@ -83,14 +83,11 @@ body { background: #FBFBFB;	color: #333333;	font-family: Georgia, Times, Serif; 
 	
 
 	#content_wrapper { /* main container with shadows */
-		border: 1px solid #CCC;
-		border-width: 0 1px 1px;
+		
 		padding-bottom:10px;
 		background: #FFF;
-		webkit-box-shadow: 0 2px 5px rgba(0,0,0,.2); 
-		-moz-box-shadow: 0 2px 5px rgba(0,0,0,.2); 
-		box-shadow: 0 2px 5px rgba(0,0,0,.2);
-		border-top:3px solid #900;
+		
+		
 	}
 		#maincontent { min-height: 350px; }
 			#maincontent .info_inner { padding:40px 60px 20px; }
@@ -98,14 +95,19 @@ body { background: #FBFBFB;	color: #333333;	font-family: Georgia, Times, Serif; 
 			#maincontent.maintenance { padding:40px 0 0; }
 		
 		/* vertical lines for sidebars */
-		#column-left > .inner {	border-right:1px solid #CCC; padding-right:10px; }
-		#column-right > .inner { border-left:1px solid #CCC; padding-left:10px; }
+		#column-left > .inner {	padding-right:10px; }
+		#column-right > .inner { padding-left:10px; }
 
 
 /* HEADER
 ----------------------------------- */
 
-	#header { position: relative; z-index: 99; }
+	#header { 
+			position: relative; z-index: 99; 
+			margin-bottom: 10px;
+			background-color: rgba(245, 245, 245, 0.6);
+			box-shadow: 0 2px 4px rgba(200,200,200,0.5);
+		}
 
 		/*  
 			Adjustments for Adapt.960.gs
@@ -308,7 +310,7 @@ body { background: #FBFBFB;	color: #333333;	font-family: Georgia, Times, Serif; 
 
 	/* Main menu */
 
-	#menu { height: 30px; margin-bottom:5px; }
+	#menu { height: 30px;  }
 
 		#menu span.top-arrow { /* Menu for mobiles */
 			background: url(../images/top-arrow.png) no-repeat center top;
@@ -322,9 +324,9 @@ body { background: #FBFBFB;	color: #333333;	font-family: Georgia, Times, Serif; 
 
 		#menu a:link, #menu a:visited {	
 			text-decoration: none;
-			padding: 4px 8px 7px; 
+			padding: 6px 8px 6px; 
 			outline:none; 
-			font-size: 16px;
+			font-size: 12px;
 			text-shadow: 0 1px 0 #FFF;
 		}
 		#menu ul { list-style: none; margin: 0; padding:0; }
@@ -373,11 +375,11 @@ body { background: #FBFBFB;	color: #333333;	font-family: Georgia, Times, Serif; 
 ----------------------------------- */
 
 	/* Page heading*/
-	.heading { border-bottom:1px solid #CCC; margin-bottom:10px; text-align:center; }
+	.heading { border-bottom:1px solid #CCC; margin-bottom:10px; }
 		.heading h1 { margin:0 0 5px 0;}
 
 	/* Breadcrumbs */
-	.breadcrumb { color: #CCC; font-size:11px; padding:6px 0; font-family: sans-serif;}
+	.breadcrumb { color: #CCC; font-size:11px; padding:6px 0; font-family: sans-serif; margin-bottom:6px;}
 		.breadcrumb a { color:#999; padding: 1px 6px; text-decoration:none; }
 		.breadcrumb a:hover {
 			color: #444;
@@ -391,7 +393,7 @@ body { background: #FBFBFB;	color: #333333;	font-family: Georgia, Times, Serif; 
 	/* Information boxes */
 	.success, .warning, .attention, .information {
 		padding: 10px 10px 10px 33px;
-		margin: 10px 30px 15px;
+		margin: 10px 0;
 		
 		color: #000;
 		text-shadow: 0 1px 0 #FFF;
@@ -691,17 +693,19 @@ background: linear-gradient(#DD4B39, #D14836);
 
 	.contentset {
 		font-size: 16px;
-		margin: 28px 0 18px;
+		margin: 0;
 		text-align:left;
-		padding-left: 10px;
+		
 		text-transform:uppercase;
 		color:#000;
-		border-top:1px solid #DDD;
+		border-bottom:1px solid #DDD;
 	}
-		.contentset.center { text-align:center; padding:0; }
-			.contentset .inner { margin: -0.8em auto 0; }
+		.contentset.center { text-align:left; padding:0; margin-bottom:10px; }
+			.contentset .inner { margin: 6px auto; }
 
 			.contentset span { background:#FFF; padding: 0 12px; }
+
+		
 
 	.address { margin-bottom:10px; }
 		.address_actions { text-align:center; }
@@ -710,13 +714,14 @@ background: linear-gradient(#DD4B39, #D14836);
 
 	.box { margin-bottom: 20px; }
 		.box .box-heading {
-			padding: 8px 10px 7px 4px;
+			padding: 10px 10px 9px 5px;
 			font-size: 14px;
 			font-weight: bold;
 			text-transform:uppercase;
 			margin-bottom: 12px;
 			line-height: 14px;
 			color: #333;
+			border-bottom:1px solid #ddd;
 		}
 		.box-product { overflow: hidden;}
 		.content-top .box-product .grid_box,
@@ -758,6 +763,7 @@ background: linear-gradient(#DD4B39, #D14836);
 		-webkit-border-radius: 8px;
 		-moz-border-radius: 8px;
 		border-radius: 8px;
+		color:#900;
 	}
 	.box-category > ul > li a.active + ul { display: block; }
 	.box-category > ul > li a:hover {
@@ -769,7 +775,20 @@ background: linear-gradient(#DD4B39, #D14836);
 	.box-category > ul > li ul > li { padding: 5px 5px 0px 10px; }
 		.box-category > ul > li ul > li > a { text-decoration: none; }
 		.box-category > ul > li ul > li > a.active { font-weight: bold; }
+	/* Mod */
+	.mod{
+		border:1px solid #ddd;
+		margin:0 0 20px;
+		background-color:#ffffff;
+		box-shadow:0 2px 4px rgba(200,200,200,0.5);
+	}
+		.mod .mod-bd{
+			padding:10px;
+		}
 
+		.mod ul, .mod ol{
+			margin:0;
+		}
 	/* Content */
 
 	#content .content { padding: 10px; margin-bottom: 20px; }
@@ -778,7 +797,7 @@ background: linear-gradient(#DD4B39, #D14836);
 
 	/* category info */
 
-	.category-info { margin-bottom: 20px; background:#F6F6F6; padding:12px; overflow: auto; }
+	.category-info { margin-bottom: 10px; background:#F6F6F6; padding:12px; overflow: auto; }
 		.category-info .image { float: left; margin-right: 15px; }
 		.category-info .contentset span { background: #F6F6F6; }
 
@@ -811,7 +830,7 @@ background: linear-gradient(#DD4B39, #D14836);
 .product-filter {
 	border-bottom: 1px solid #DDD;
 	padding:8px 5px;
-	margin-bottom:20px;
+	margin-bottom:10px;
 	font-size:11px;
 	font-family:sans-serif;
 	overflow: hidden;
@@ -1005,7 +1024,7 @@ background: linear-gradient(#DD4B39, #D14836);
 	.product_info .price {
 		border-bottom: 1px solid #E7E7E7;
 		padding-bottom: 10px;
-		margin: 40px 0 10px;
+		margin: 10px 0;
 		font-size: 16px;
 		font-weight: bold;
 		color: #333333;
