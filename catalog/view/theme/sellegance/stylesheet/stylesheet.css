@@ -1260,7 +1260,7 @@ background: linear-gradient(#DD4B39, #D14836);
 /* CART
 ------------------------------- */
 
-.heading h1 span { color: #666;	font-size:16px; display:block; margin-top:8px;
+.heading h1 span { color: #666;	font-size:16px; margin:8px 0 0 8px;
 } /* if weight is displayed */
 
 .cart-info table { margin-top:-10px; width: 100%; border-collapse: collapse; margin-bottom: 12px; }
