@@ -71,7 +71,7 @@
 				<div class="main_image"><a href="<?php echo $popup; ?>" title="<?php echo $heading_title; ?>" class="fancybox" rel="fancybox"><img src="<?php echo $thumb; ?>" title="<?php echo $heading_title; ?>" alt="<?php echo $heading_title; ?>" id="image" /></a></div>
 			]]></search>
 			<add><![CDATA[
-			  <div class="main_image"><a href="<?php echo $popup; ?>" title="<?php echo $heading_title; ?>" class = 'cloud-zoom' id='zoom1' rel="tint: '#646464', tintOpacity:0.5, showTitle: false, zoomWidth:360, zoomHeight: 360, adjustY:0, adjustX:10, smoothMove:5" ><img src="<?php echo $thumb; ?>" title="<?php echo $heading_title; ?>" alt="<?php echo $heading_title; ?>" /></a></div>
+			  <div class="main_image"><a href="<?php echo $popup; ?>" title="<?php echo $heading_title; ?>" class = 'cloud-zoom' id='zoom1' rel="tint: '#646464', tintOpacity:0.5, showTitle: false, zoomWidth:360, zoomHeight: 360, adjustY:0, adjustX:10, smoothMove:5" ><img src="<?php echo $thumb; ?>" title="<?php echo $heading_title; ?>" alt="<?php echo $heading_title; ?>" width="460" height="460" /></a></div>
 			]]></add>
 		</operation>
 		<operation>
