@@ -47,6 +47,8 @@ filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#4C000000,endCol
 .flex-caption {width: 96%; padding: 2%; position: absolute; left: 0; bottom: 0; background: rgba(0,0,0,.3); color: #fff; text-shadow: 0 -1px 0 rgba(0,0,0,.3); font-size: 14px; line-height: 18px;}
 
 /* Direction Nav */
+.flex-direction-nav {display: none;}
+.flexslider:hover .flex-direction-nav{display: block;}
 .flex-direction-nav li a {width: 30px; height: 30px; /*margin: -13px 0 0;*/ display: block; background: url(../images/arrows.png) no-repeat 0 0; position: absolute; top: 48%; cursor: pointer; text-indent: -9999px;}
 .flex-direction-nav li .next {background-position: -30px 0; right: 10px;}
 .flex-direction-nav li .prev {left: 10px;}
@@ -59,3 +61,4 @@ filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#4C000000,endCol
 .flex-control-nav li a {width: 13px; height: 13px; display: block; background: url(../images/bg_control_nav.png) no-repeat 0 0; cursor: pointer; text-indent: -9999px;}
 .flex-control-nav li a:hover {background-position: 0 -13px;}
 .flex-control-nav li a.active {background-position: 0 -26px; cursor: default;}
+.flex-control-nav {display: none;}
