@@ -90,6 +90,13 @@
 			  <a href="<?php echo $image['popup']; ?>" title="<?php echo $heading_title; ?>" class="cloud-zoom-gallery" rel="useZoom: 'zoom1', smallImage: '<?php echo $image['thumb']; ?>' "><img src="<?php echo $image['small']; ?>" title="<?php echo $heading_title; ?>" alt="<?php echo $heading_title; ?>" /></a>
 			]]></add>
 		</operation>
+		<operation>
+			<search position="replace"><![CDATA[
+				$('.fancybox').fancybox({cyclic: true});
+			]]></search>
+			<add><![CDATA[
+			]]></add>
+		</operation>
 	</file>
 	<file name="catalog/controller/product/product.php">
 		<operation>
