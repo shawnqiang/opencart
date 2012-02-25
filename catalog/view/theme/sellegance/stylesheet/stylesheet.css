@@ -379,7 +379,7 @@ body { background: #f7f7f7;	color: #333333;	font-family: Georgia, Times, Serif; 
 		.heading h1 { margin:0 0 5px 0;}
 
 	/* Breadcrumbs */
-	.breadcrumb { color: #CCC; font-size:11px; padding:6px 0; font-family: sans-serif; margin-bottom:6px;}
+	.breadcrumb { color: #CCC; font-size:11px; padding:10px 0; font-family: sans-serif; }
 		.breadcrumb a { color:#999; padding: 1px 6px; text-decoration:none; }
 		.breadcrumb a:hover {
 			color: #444;
@@ -790,6 +790,16 @@ background: linear-gradient(#DD4B39, #D14836);
 		.mod ul, .mod ol{
 			margin:0;
 		}
+	/* mod-grid*/
+	.mod-grid .grid-item{float:left;}
+	.subcat-grid{border-top:2px solid #ddd;}
+	.subcat-grid .grid-item{width:25%; text-align:center;}
+	.subcat-grid .image{padding:20px 0;}
+	.subcat-grid .inner{
+		border-right:1px solid #ddd;
+		height:240px;
+		border-bottom:1px solid #ddd;
+	}
 	/* Content */
 
 	#content .content { padding: 10px; margin-bottom: 20px; }
@@ -1372,7 +1382,7 @@ background: linear-gradient(#DD4B39, #D14836);
 
 #footer { margin-top:40px; text-shadow: 0 1px 0 #FFF; padding-top:10px;border-top:1px solid #ddd; }
 
-	#footer h3 { color: #000; font-weight:normal; text-transform:uppercase; margin: 4px 0 8px; font-size:1.1em;}
+	#footer h3 { color: #000; font-weight:normal; text-transform:uppercase; margin: 4px 0 8px; font-size:12px;}
 	#footer ul {
 		list-style:none;
 		margin:0;

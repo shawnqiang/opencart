@@ -1,6 +1,6 @@
 <?php echo $header; ?>
 
-	<?php echo $content_top; ?>
+	
 
 	<div class="breadcrumb grid_12">
 		<?php foreach ($breadcrumbs as $breadcrumb) { ?>
@@ -9,14 +9,13 @@
 	</div>
 
 	<div class="grid_12">
-		
 		<div id="notification"></div>
 	</div>
 
 	<?php ($column_left) ? $main = "push_3" : $main=""; ?>
 
 	<div id="maincontent" class="grid_9 <?php echo $main; ?>">
-
+	<?php echo $content_top; ?>
 	<div class="heading">
 		<h1><?php echo $heading_title; ?></h1>
 		
@@ -262,7 +261,7 @@ view = $.cookie('display');
 if (view) {
 	display(view);
 } else {
-	display('list');
+	display('grid');
 }
 //--></script> 
 

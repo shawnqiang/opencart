@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<modification>
+	<id>Auto fill Product SEO keyword - Credits to Kartoffelz</id>
+	<version>1</version>
+	<vqmver>2.1.5</vqmver>
+	<author>Harryo - Kartoffelz</author>
+	<file name="system/library/url.php">
+		<operation>
+			<search position="after" offset="1"><![CDATA[return $url;]]></search>
+			<add><![CDATA[
+			public function seoURL($str) {
+            $str = preg_replace('/[^a-zA-Z0-9]+/', '-', $str);
+            $str = trim($str, '-');
+            $str = strtolower($str);
+	
+            return $str;
+	}
+	]]></add>
+		</operation>		
+	</file>
+	<file name="admin/model/catalog/product.php">
+        <operation>
+            <search position="replace"><![CDATA[
+			$this->db->query("INSERT INTO " . DB_PREFIX . "url_alias SET query = 'product_id=" . (int)$product_id . "', keyword = '" . $this->db->escape($data['keyword']) . "'");
+			]]></search>
+            <add><![CDATA[		
+		$this->db->query("INSERT INTO " . DB_PREFIX . "url_alias SET query = 'product_id=" . (int)$product_id . "', keyword = '" . $this->db->escape($data['keyword']) . "'");
+		}
+		
+		elseif(empty($data['keyword'])) {
+                        $data['keyword'] = $this->url->seoURL($data['product_description'][$language_id]['name']);
+                        $this->db->query("INSERT INTO " . DB_PREFIX . "url_alias SET query = 'product_id=" . (int)$product_id . "', keyword = '" . $this->db->escape($data['keyword']) . "'");
+			   ]]></add>
+		</operation>
+	</file>
+	<file name="admin/model/catalog/category.php">
+        <operation>
+            <search position="replace"><![CDATA[
+			$this->db->query("INSERT INTO " . DB_PREFIX . "url_alias SET query = 'category_id=" . (int)$category_id . "', keyword = '" . $this->db->escape($data['keyword']) . "'");
+			]]></search>
+            <add><![CDATA[		
+		$this->db->query("INSERT INTO " . DB_PREFIX . "url_alias SET query = 'category_id=" . (int)$category_id . "', keyword = '" . $this->db->escape($data['keyword']) . "'");
+		}
+		
+		elseif(empty($data['keyword'])) {
+                        $data['keyword'] = $this->url->seoURL($data['category_description'][$language_id]['name']);
+                        $this->db->query("INSERT INTO " . DB_PREFIX . "url_alias SET query = 'category_id=" . (int)$category_id . "', keyword = '" . $this->db->escape($data['keyword']) . "'");
+			   ]]></add>
+		</operation>
+	</file>
+</modification>

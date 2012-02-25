@@ -42,7 +42,7 @@ pre { white-space: pre; white-space: pre-wrap; word-wrap: break-word; }
 blockquote { margin: 1.5em 40px; }
 q { quotes: none; }
 q:before, q:after { content: ''; content: none; }
-ul, ol { margin: 1.5em 0; padding: 0; }
+ul, ol { margin: 1.5em 0; padding: 0; list-style:none;}
 dd { margin: 0; }
 nav ul, nav ol, .widget ol, .widget ul, .commentlist { list-style: none; list-style-image: none; margin: 0; }
 

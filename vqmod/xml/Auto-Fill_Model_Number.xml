@@ -1,0 +1,16 @@
+<modification>
+	<id>Auto-Fill Unique/Default Model Number</id>
+	<version>1.0</version>
+	<vqmver>2.1.5</vqmver>
+	<author>Concept211</author>
+	<file name="admin/view/template/catalog/product_form.tpl">
+		<operation>
+			<search position="replace"><![CDATA[
+			<input type="text" name="model" value="<?php echo $model; ?>" />
+			]]></search>
+			<add><![CDATA[
+			<input type="text" name="model" value="<?php echo ($model==''?time():$model); ?>" />
+			]]></add>
+		</operation>
+	</file>
+</modification>

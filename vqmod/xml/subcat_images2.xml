@@ -1,0 +1,45 @@
+<modification>
+<id>Display Subcat Images</id>
+<version>1.0</version>
+<vqmver>1.1.0</vqmver>
+<author>Rob Horsfield</author>
+
+<file name="catalog/view/theme/sellegance/template/product/categoryentry.tpl">
+<operation>
+<search position="replace" offset="20"><![CDATA[<div class="contentset"><div class="inner"><span><?php echo $text_refine; ?></span></div></div>]]></search>
+<add><![CDATA[
+  <div class="mod-grid subcat-grid clearfix">
+		<?php foreach ($categories as $category) { ?>
+		<div class="grid-item subcat-item">
+			<div class="inner">
+			<?php if ($category['thumb']) { ?>
+			<div class="image"><a href="<?php echo $category['href']; ?>"><img src="<?php echo $category['thumb']; ?>" alt="<?php echo $category['name']; ?>" /></a></div>
+			<?php } ?>
+			<div class="name subcatname"><a href="<?php echo $category['href']; ?>"><?php echo $category['name']; ?></a></div>
+			</div>
+		</div>
+		<?php } ?>
+  </div>
+]]></add>
+</operation>	
+</file>
+
+<file name="catalog/controller/product/categoryentry.php">
+<operation>
+<search position="before"><![CDATA[
+$this->data['categories'][] = array(
+]]></search>
+<add><![CDATA[
+$image = $this->model_tool_image->resize($result['image'], $this->config->get('config_image_category_width'), $this->config->get('config_image_category_height'));
+]]></add>
+</operation>	
+<operation>
+<search position="after"><![CDATA[
+'href'  => $this->url->link('product/category', 'path=' . $this->request->get['path'] . '_' . $result['category_id'] . $url)
+]]></search>
+<add><![CDATA[
+, 'thumb' => $image
+]]></add>
+</operation>	
+</file>
+</modification>
