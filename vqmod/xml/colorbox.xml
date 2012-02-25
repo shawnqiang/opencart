@@ -1,0 +1,125 @@
+﻿<modification>
+	<id>colorbox</id>
+	<version>1.0</version>
+	<vqmver>2.0</vqmver>
+	<author></author>
+	<file name="catalog/view/theme/sellegance/template/common/header.tpl">
+		<operation>
+			<search position="replace"><![CDATA[
+				<link rel="stylesheet" type="text/css" href="catalog/view/javascript/jquery/fancybox/jquery.fancybox-1.3.4.css" media="screen" />
+			]]></search>
+			<add><![CDATA[
+				<link href="catalog/view/javascript/jquery/colorbox/colorbox.css" rel="stylesheet" type="text/css" media="screen" />
+			]]></add>
+		</operation>
+		<operation>
+			<search position="replace"><![CDATA[
+				<script type="text/javascript" src="catalog/view/javascript/jquery/fancybox/jquery.fancybox-1.3.4.pack.js"></script>
+			]]></search>
+			<add><![CDATA[
+				<script type="text/JavaScript" src="catalog/view/javascript/jquery/colorbox/jquery.colorbox-min.js"></script>
+			]]></add>
+		</operation>
+		<operation>
+			<search position="replace"><![CDATA[
+				<script type="text/javascript" src="catalog/view/javascript/jquery/fancybox/jquery.fancybox-1.3.4-iefix.js"></script>
+			]]></search>
+			<add><![CDATA[
+			]]></add>
+		</operation>
+	</file>
+	<file name="catalog/view/theme/sellegance/template/checkout/payment.tpl">
+		<operation>
+			<search position="replace" offset="4"><![CDATA[
+				$('.fancybox').fancybox({
+			]]></search>
+			<add><![CDATA[
+				$('.colorbox').colorbox({
+					close: '&times;',
+					maxWidth: '60%',
+					maxHeight: '80%',
+					fixed: true,
+					top: -10
+				});
+			]]></add>
+		</operation>
+	</file>
+	<file name="catalog/view/theme/sellegance/template/affiliate/register.tpl">
+		<operation>
+			<search position="replace" offset="4"><![CDATA[
+				$('.fancybox').fancybox({
+			]]></search>
+			<add><![CDATA[
+				$('.colorbox').colorbox({
+					close: '&times;',
+					maxWidth: '60%',
+					maxHeight: '80%',
+					fixed: true,
+					top: -10
+				});
+			]]></add>
+		</operation>
+	</file>
+	<file name="catalog/view/theme/sellegance/template/account/register.tpl">
+		<operation>
+			<search position="replace" offset="4"><![CDATA[
+				$('.fancybox').fancybox({
+			]]></search>
+			<add><![CDATA[
+				$('.colorbox').colorbox({
+					close: '&times;',
+					maxWidth: '60%',
+					maxHeight: '80%',
+					fixed: true,
+					top: -10
+				});
+			]]></add>
+		</operation>
+	</file>
+	<file name="catalog/view/theme/sellegance/template/checkout/register.tpl">
+		<operation>
+			<search position="replace" offset="4"><![CDATA[
+				$('.fancybox').fancybox({
+			]]></search>
+			<add><![CDATA[
+				$('.colorbox').colorbox({
+					close: '&times;',
+					maxWidth: '60%',
+					maxHeight: '80%',
+					fixed: true,
+					top: -10
+				});
+			]]></add>
+		</operation>
+	</file>
+	<file name="catalog/language/english/account/register.php">
+		<operation>
+			<search position="replace"><![CDATA[
+				$_['text_agree']           = 'I have read and agree to the <a class="fancybox" href="%s" alt="%s"><b>%s</b></a>';
+			]]></search>
+			<add><![CDATA[
+				$_['text_agree']           = 'I have read and agree to the <a class="colorbox" href="%s" title="%s"><b>%s</b></a>';
+			]]></add>
+		</operation>
+	</file>
+	<file name="catalog/language/english/affiliate/register.php">
+		<operation>
+			<search position="replace"><![CDATA[
+				$_['text_agree']                = 'I have read and agree to the <a class="fancybox" href="%s" alt="%s"><b>%s</b></a>';
+			]]></search>
+			<add><![CDATA[
+				$_['text_agree']                = 'I have read and agree to the <a class="colorbox" href="%s" title="%s"><b>%s</b></a>';
+			]]></add>
+		</operation>
+	</file>
+	<file name="catalog/language/english/checkout/checkout.php">
+		<operation>
+			<search position="replace"><![CDATA[
+				$_['text_agree']                     = 'I have read and agree to the <a class="fancybox" href="%s" alt="%s"><b>%s</b></a>';
+			]]></search>
+			<add><![CDATA[
+				$_['text_agree']                     = 'I have read and agree to the <a class="colorbox" href="%s" title="%s"><b>%s</b></a>';
+			]]></add>
+		</operation>
+	</file>
+</modification>
