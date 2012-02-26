@@ -29,7 +29,7 @@
 		var	softFocus = null;
 		var	$ie6Fix = null;
 		var	zoomImage;
-        var controlTimer = 0;      
+        var controlTimer = 0, hoverTimer = 0;
         var cw, ch;
         var destU = 0;
 		var	destV = 0;
@@ -181,21 +181,23 @@
             });
             //////////////////////////////////////////////////////////////////////					
             $mouseTrap.bind('mouseleave', this, function (event) {
+		clearTimeout(hoverTimer);
                 clearTimeout(controlTimer);
                 //event.data.removeBits();                
-				if(lens) { lens.fadeOut(299); }
-				if($tint) { $tint.fadeOut(299); }
-				if(softFocus) { softFocus.fadeOut(299); }
-				zoomDiv.fadeOut(300, function () {
+				if(lens) { lens.fadeOut(100); }
+				if($tint) { $tint.fadeOut(100); }
+				if(softFocus) { softFocus.fadeOut(100); }
+				zoomDiv.fadeOut(100, function () {
                     ctx.fadedOut();
                 });																
                 return false;
             });
             //////////////////////////////////////////////////////////////////////			
             $mouseTrap.bind('mouseenter', this, function (event) {
-				mx = event.pageX;
+		mx = event.pageX;
                 my = event.pageY;
                 zw = event.data;
+		function hover() {
                 if (zoomDiv) {
                     zoomDiv.stop(true, false);
                     zoomDiv.remove();
@@ -267,7 +269,7 @@
                     }).insertBefore(zoomDiv);
                 }
 
-                zoomDiv.fadeIn(500);
+                zoomDiv.fadeIn(100);
 
                 if (lens) {
                     lens.remove();
@@ -289,7 +291,7 @@
                     $tint = jWin.append(format('<div style="display:none;position:absolute; left:0px; top:0px; width:%0px; height:%1px; background-color:%2;" />', sImg.outerWidth(), sImg.outerHeight(), opts.tint)).find(':last');
                     $tint.css('opacity', opts.tintOpacity);                    
 					noTrans = true;
-					$tint.fadeIn(500);
+					$tint.fadeIn(100);
 
                 }
                 if (opts.softFocus) {
@@ -298,16 +300,18 @@
                     softFocus.css('background', 'url("' + sImg.attr('src') + '")');
                     softFocus.css('opacity', 0.5);
                     noTrans = true;
-                    softFocus.fadeIn(500);
+                    softFocus.fadeIn(100);
                 }
 
                 if (!noTrans) {
                     lens.css('opacity', opts.lensOpacity);										
                 }
-				if ( opts.position !== 'inside' ) { lens.fadeIn(500); }
+				if ( opts.position !== 'inside' ) { lens.fadeIn(100); }
 
                 // Start processing. 
                 zw.controlLoop();
+		}
+		hoverTimer = setTimeout(hover, opts.hoverTimeout);
 
                 return; // Don't return false here otherwise opera will not detect change of the mouse pointer type.
             });
