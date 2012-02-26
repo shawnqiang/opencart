@@ -1016,7 +1016,8 @@ background: linear-gradient(#DD4B39, #D14836);
 
 	.product_info .image { margin-bottom: 20px; text-align: center; }
 	.product_info .grid_4 > .main_image img { width:99%; max-width:475px; }
-
+	.product_info .grid_6 .main_image{border:1px solid #dedede; padding:10px; margin-bottom:10px;}
+	.product_info .grid_6 .main_image img{width:100%; max-width:338px;}
 	.product_info .additional_images { clear: both; overflow: hidden; }
 		.product_info .additional_images a {
 			float: left;
