@@ -298,7 +298,7 @@ body { background: #f7f7f7;	color: #333333;	font-family: Georgia, Times, Serif; 
 
 			/* Welcome and Links */
 
-			#welcome { color: #999; margin:10px 0 10px; height:40px; line-height:40px; font-size:11px; font-family:sans-serif; }
+			#welcome { color: #999; margin:10px 0 10px; height:40px; line-height:40px; font-size:11px; /*font-family:sans-serif;*/ }
 
 			/*#links { position: absolute; top:36px;}*/
 				#links a + a { margin-left: 6px; padding-left: 6px; border-left: 1px solid #DDD; }
@@ -379,7 +379,7 @@ body { background: #f7f7f7;	color: #333333;	font-family: Georgia, Times, Serif; 
 		.heading h1 { margin:0 0 5px 0;}
 
 	/* Breadcrumbs */
-	.breadcrumb { color: #CCC; font-size:11px; padding:10px 0; font-family: sans-serif; }
+	.breadcrumb { color: #CCC; font-size:11px; padding:10px 0; /*font-family: sans-serif;*/ }
 		.breadcrumb a { color:#999; padding: 1px 6px; text-decoration:none; }
 		.breadcrumb a:hover {
 			color: #444;
@@ -417,7 +417,7 @@ body { background: #f7f7f7;	color: #333333;	font-family: Georgia, Times, Serif; 
 
 	/* Error messages */
 	input.error, select.error, textarea.error { border: 1px solid #F26B55; }
-	span.error { display: block; color: #DD4B39; font-family: sans-serif; font-size: 85%;}
+	span.error { display: block; color: #DD4B39; /*font-family: sans-serif;*/ font-size: 85%;}
 
 	/* Help */
 	.help { color: #999; font-size: 11px; font-weight: normal; font-family: sans-serif; display: block; }
@@ -844,7 +844,7 @@ background: linear-gradient(#DD4B39, #D14836);
 	padding:8px 5px;
 	margin-bottom:10px;
 	font-size:11px;
-	font-family:sans-serif;
+	/*font-family:sans-serif;*/
 	overflow: hidden;
 }
 	.product-filter select { padding:1px; font-size:11px; }
@@ -955,13 +955,13 @@ background: linear-gradient(#DD4B39, #D14836);
 	.product-list .price { font-weight: bold; text-align: right; color: #333; }
 	.product-list .price-old { color: #F00; text-decoration: line-through; font-weight: normal; }
 	.product-list .price-new { font-weight: bold; color: #333; }
-	.product-list .price-tax { font-size: 11px; font-family:sans-serif; font-weight: normal; color: #999; }
+	.product-list .price-tax { font-size: 11px; /*font-family:sans-serif;*/ font-weight: normal; color: #999; }
 	.product-list .cart { margin-bottom: 3px; text-align:right; }
 
 	.compare a, .wishlist a, .remove a {
 		color: #777;
 		text-decoration: none;
-		font-family:sans-serif;
+		/*font-family:sans-serif;*/
 		font-size:11px;
 		padding: 1px 6px 1px 14px;
 		background-image: url(../images/plus.png);
@@ -1044,7 +1044,7 @@ background: linear-gradient(#DD4B39, #D14836);
 		.product_info .price-old { color: #F00; text-decoration: line-through; font-weight:normal; }
 		.product_info .price-normal, .product_info .price-new { font-size:22px; }
 
-	.product_info .price-tax, .product_info .price .reward { font-size: 12px; font-weight: normal; color: #999; font-family:sans-serif; }
+	.product_info .price-tax, .product_info .price .reward { font-size: 12px; font-weight: normal; color: #999; /*font-family:sans-serif;*/ }
 
 	.product_info .price .discount { font-weight: normal; font-size: 12px; color: #4D4D4D;
 		margin-top:12px; }
@@ -1068,13 +1068,13 @@ background: linear-gradient(#DD4B39, #D14836);
 .product_info .cart .text_or { margin: 12px 8px; vertical-align:middle; float:left; color: #bbb; }
 .product_info .more_actions div { float: none; }
 
-.product_info .cart .minimum { margin-top: 5px; font-size: 10px; color: #999; font-family: sans-serif; }
+.product_info .cart .minimum { margin-top: 5px; font-size: 10px; color: #999; /*font-family: sans-serif;*/ }
 .product_info .tags {
 	padding:8px;
 	border-top: 1px solid #EEE;
 }
 .product_info .tags a {
-	font-family:sans-serif;
+	/*font-family:sans-serif;*/
 	text-decoration:none;
 	font-size: 11px;
 	text-shadow: 0 1px 0 #FFF;
@@ -1105,12 +1105,12 @@ background: linear-gradient(#DD4B39, #D14836);
 .reviewform { background: #F9F9F9; padding: 10px; }
 	.reviewform input, .reviewform textarea { background: #FFF; }
 	#review .content { margin-bottom:10px; }
-		.review_date { font-size:11px; font-family:sans-serif; color: #999; }
+		.review_date { font-size:11px; /*font-family:sans-serif;*/ color: #999; }
 
 /* Full description */
 
 .product_info .full_info { margin-top:30px; }
-	.html_note { font-size:11px; font-family:sans-serif; color:#999; }
+	.html_note { font-size:11px; /*font-family:sans-serif;*/ color:#999; }
 	
 	.attribute { border-collapse: collapse; width: 100%; margin-bottom: 20px; }
 		.attribute thead td,
@@ -1397,7 +1397,7 @@ background: linear-gradient(#DD4B39, #D14836);
 		#footer .botmenu li { display: inline; padding:0 8px 0; }
 		#footer .botmenu li + li { border-left:1px solid #CCC; }
 
-	#footer #copy { text-align:center; color: #777; font-family:sans-serif; font-size:11px; line-height:1.3em; }
+	#footer #copy { text-align:center; color: #777; /*font-family:sans-serif;*/ font-size:11px; line-height:1.3em; }
 		#footer #copy a { color: #333; }
 
 	#footer .contact span {	text-transform:uppercase; }
