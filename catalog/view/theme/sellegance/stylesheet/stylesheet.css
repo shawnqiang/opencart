@@ -326,7 +326,7 @@ body { background: #f7f7f7;	color: #333333;	font-family: Georgia, Times, Serif; 
 			text-decoration: none;
 			padding: 6px 8px 6px; 
 			outline:none; 
-			font-size: 12px;
+			font-size: 14px;
 			text-shadow: 0 1px 0 #FFF;
 		}
 		#menu ul { list-style: none; margin: 0; padding:0; }

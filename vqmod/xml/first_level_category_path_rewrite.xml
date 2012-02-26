@@ -11,5 +11,11 @@
 </operation>	
 </file>
 
+<file name="catalog/controller/common/header.php">
+<operation>
+<search position="replace"><![CDATA['href'     => $this->url->link('product/category', 'path=' . $category['category_id'])]]></search>
+<add><![CDATA['href'     => $this->url->link('product/categoryentry', 'path=' . $category['category_id'])]]></add>
+</operation>	
+</file>
 
 </modification>
