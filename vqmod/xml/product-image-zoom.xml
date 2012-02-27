@@ -71,7 +71,7 @@
 				<div class="main_image"><a href="<?php echo $popup; ?>" title="<?php echo $heading_title; ?>" class="fancybox" rel="fancybox"><img src="<?php echo $thumb; ?>" title="<?php echo $heading_title; ?>" alt="<?php echo $heading_title; ?>" id="image" /></a></div>
 			]]></search>
 			<add><![CDATA[
-			  <div class="main_image"><a href="<?php echo $popup; ?>" title="<?php echo $heading_title; ?>" class = 'cloud-zoom' id='zoom1' rel="tint: '#646464', tintOpacity:0.5, showTitle: false, zoomWidth:360, zoomHeight: 360, adjustY:0, adjustX:10, smoothMove:5, hoverTimeout:200" ><img src="<?php echo $thumb; ?>" title="<?php echo $heading_title; ?>" alt="<?php echo $heading_title; ?>" width="438" height="438" /></a></div>
+			  <div class="main_image"><a href="<?php echo $popup; ?>" title="<?php echo $heading_title; ?>" class = 'cloud-zoom' id='zoom1' rel="tint: '#646464', tintOpacity:0.5, showTitle: false, zoomWidth:460, zoomHeight: 460, adjustY:-10, adjustX:30, smoothMove:5, hoverTimeout:200" ><img src="<?php echo $thumb; ?>" title="<?php echo $heading_title; ?>" alt="<?php echo $heading_title; ?>" width="438" height="438" /></a></div>
 			]]></add>
 		</operation>
 		<operation>

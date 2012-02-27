@@ -23,8 +23,11 @@
 
 /* This is the zoom window. */
 .cloud-zoom-big {
-	border:1px solid #ddd;
+	moz-box-shadow:0 0 4px #ccc;
+	webkit-box-shadow:0 0 4px #ccc;
+	box-shadow:0 0 4px #ccc;
 	overflow:hidden;
+	background-color:#fff;
 }
 
 /* This is the loading message. */
