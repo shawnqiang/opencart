@@ -101,8 +101,7 @@
 
         // This is called when the zoom window has faded out so it can be removed.
         this.fadedOut = function () {
-            
-			if (zoomDiv) {
+	    if (zoomDiv) {
                 zoomDiv.remove();
                 zoomDiv = null;
             }
@@ -188,7 +187,7 @@
 				if($tint) { $tint.fadeOut(100); }
 				if(softFocus) { softFocus.fadeOut(100); }
 				zoomDiv.fadeOut(100, function () {
-                    ctx.fadedOut();
+                    //ctx.fadedOut();
                 });																
                 return false;
             });
@@ -198,10 +197,10 @@
                 my = event.pageY;
                 zw = event.data;
 		function hover() {
-                if (zoomDiv) {
+                /*if (zoomDiv) {
                     zoomDiv.stop(true, false);
                     zoomDiv.remove();
-                }
+                }*/
 
                 var xPos = opts.adjustX,
                     yPos = opts.adjustY;
@@ -250,12 +249,13 @@
                     }
                 }
 
-                zoomDiv = appendTo.append(format('<div id="cloud-zoom-big" class="cloud-zoom-big" style="display:none;position:absolute;left:%0px;top:%1px;width:%2px;height:%3px;background-image:url(\'%4\');z-index:99;"></div>', xPos, yPos, w, h, zoomImage.src)).find(':last');
-
-                // Add the title from title tag.
-                if (sImg.attr('title') && opts.showTitle) {
-                    zoomDiv.append(format('<div class="cloud-zoom-title">%0</div>', sImg.attr('title'))).find(':last').css('opacity', opts.titleOpacity);
-                }
+		if (!zoomDiv) {
+	                zoomDiv = appendTo.append(format('<div id="cloud-zoom-big" class="cloud-zoom-big" style="display:none;position:absolute;left:%0px;top:%1px;width:%2px;height:%3px;background-image:url(\'%4\');z-index:99;"></div>', xPos, yPos, w, h, zoomImage.src)).find(':last');
+                	// Add the title from title tag.
+	                if (sImg.attr('title') && opts.showTitle) {
+       	        		zoomDiv.append(format('<div class="cloud-zoom-title">%0</div>', sImg.attr('title'))).find(':last').css('opacity', opts.titleOpacity);
+			}
+		}
 
                 // Fix ie6 select elements wrong z-index bug. Placing an iFrame over the select element solves the issue...		
                 if ($.browser.msie && $.browser.version < 7) {
@@ -271,6 +271,7 @@
 
                 zoomDiv.fadeIn(100);
 
+		/*
                 if (lens) {
                     lens.remove();
                     lens = null;
@@ -279,7 +280,9 @@
                 ch = (sImg.outerHeight() / zoomImage.height) * zoomDiv.height();
 
                 // Attach mouse, initially invisible to prevent first frame glitch
-                lens = jWin.append(format("<div class = 'cloud-zoom-lens' style='display:none;z-index:98;position:absolute;width:%0px;height:%1px;'></div>", cw, ch)).find(':last');
+		if (!lens) {
+	                lens = jWin.append(format("<div class = 'cloud-zoom-lens' style='display:none;z-index:98;position:absolute;width:%0px;height:%1px; background:url(\"%2\") transparent'></div>", cw, ch, (opts.tint||opts.softFocus ? sImg.attr('src') : ''))).find(':last');
+		}
 
                 $mouseTrap.css('cursor', lens.css('cursor'));
 
@@ -287,17 +290,21 @@
 
                 // Init tint layer if needed. (Not relevant if using inside mode)			
                 if (opts.tint) {
-                    lens.css('background', 'url("' + sImg.attr('src') + '")');
-                    $tint = jWin.append(format('<div style="display:none;position:absolute; left:0px; top:0px; width:%0px; height:%1px; background-color:%2;" />', sImg.outerWidth(), sImg.outerHeight(), opts.tint)).find(':last');
+                    //lens.css('background', 'url("' + sImg.attr('src') + '")');
+		    if (! $tint) {
+	                    $tint = jWin.append(format('<div style="display:none;position:absolute; left:0px; top:0px; width:%0px; height:%1px; background-color:%2;" />', sImg.outerWidth(), sImg.outerHeight(), opts.tint)).find(':last');
+		    }
                     $tint.css('opacity', opts.tintOpacity);                    
 					noTrans = true;
 					$tint.fadeIn(100);
 
                 }
                 if (opts.softFocus) {
-                    lens.css('background', 'url("' + sImg.attr('src') + '")');
-                    softFocus = jWin.append(format('<div style="position:absolute;display:none;top:2px; left:2px; width:%0px; height:%1px;" />', sImg.outerWidth() - 2, sImg.outerHeight() - 2, opts.tint)).find(':last');
-                    softFocus.css('background', 'url("' + sImg.attr('src') + '")');
+                    //lens.css('background', 'url("' + sImg.attr('src') + '")');
+		    if (!softFocus) {
+	                    softFocus = jWin.append(format('<div style="position:absolute;display:none;top:2px; left:2px; width:%0px; height:%1px;" />', sImg.outerWidth() - 2, sImg.outerHeight() - 2, opts.tint)).find(':last');
+           		    softFocus.css('background', 'url("' + sImg.attr('src') + '")');
+		    }
                     softFocus.css('opacity', 0.5);
                     noTrans = true;
                     softFocus.fadeIn(100);
