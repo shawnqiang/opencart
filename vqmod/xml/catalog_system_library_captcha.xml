@@ -1,0 +1,113 @@
+<modification>
+	<id>change system library capatcha</id>
+	<version>1.0.1</version>
+	<vqmver>1.0.8</vqmver>
+	<author>manlianxiao3@126.com</author>
+	<file name="system/library/captcha.php">
+		<operation>
+			<search position="replace"><![CDATA[
+				protected $height = 150;			
+			]]>
+			</search>
+			<add><![CDATA[
+				protected $height = 150; //replace from 150 to 110			
+			]]>
+			</add>
+		</operation>
+		<operation>
+			<search position="before"><![CDATA[
+				function showImage() {
+				]]>
+			</search>
+			<add><![CDATA[
+				function showAuthImage() {
+					$image = imagecreatetruecolor($this->height, $this->width);
+
+					$width = imagesx($image); 
+					$height = imagesy($image);
+		
+					$black = imagecolorallocate($image, 0, 0, 0); 
+					$white = imagecolorallocate($image, 255, 255, 255); 
+					 
+					imagefilledrectangle($image, 0, 0, $width, $height, $white);
+					
+					$this->setExtLine($image);
+					$this->setExtPixel($image);	
+					
+					imagefilledrectangle($image, 0, 0, $width, 0, $black); 
+					imagefilledrectangle($image, $width - 1, 0, $width - 1, $height - 1, $black); 
+					imagefilledrectangle($image, 0, 0, 0, $height - 1, $black); 
+					imagefilledrectangle($image, 0, $height - 1, $width, $height - 1, $black); 
+					 
+					imagestring($image, 10, intval(($width - (strlen($this->code) * 9)) / 2),  intval(($height - 15) / 2), $this->code, $black);
+
+					header('Content-type: image/jpeg');
+	
+					imagejpeg($image);
+	
+					imagedestroy($image);
+				}
+				public function setHeight($height) {
+					$this->height = $height;				
+				}			
+				//				
+				private function setExtPixel($image) {
+					$noise_pixel_count = ($this->height-10)*($this->width-5);
+					$rand_color_rgb = $this->getRandColor();
+					for($i = 0; $i < $noise_pixel_count; $i++) {
+						$rand_color = imagecolorallocate($image, $rand_color_rgb['R'], $rand_color_rgb['G'], $rand_color_rgb['B']);
+						imagesetpixel($image, rand()%150, rand()%150, $rand_color);
+					}
+				}
+
+				//
+				private function setExtLine($image) {
+					for($i = 0; $i <= 2; $i++) {
+						$rand_color = imagecolorallocate($image, rand(0, 100), rand(0, 150), rand(0, 200));
+						$rand_x = rand(2, $this->height/2);
+						$rand_y = rand(2, $this->width);
+						$rand_x2 = rand($this->height/2, $this->height);
+						$rand_y2 = rand(2, $this->width);
+										
+						imageline($image, $rand_x, $rand_y, $rand_x2, $rand_y2, $rand_color);
+					}
+				}
+				//
+				private function getRandColor() {
+					$rand_color_array = array(
+						array('R'=>197, 'G'=>204, 'B'=>175),
+						array('R'=>146, 'G'=>217, 'B'=>221),
+						array('R'=>202, 'G'=>171, 'B'=>173),
+						array('R'=>188, 'G'=>140, 'B'=>213),
+						array('R'=>198, 'G'=>198, 'B'=>198)		
+					);
+					
+					if( !empty($rand_color_array) ) {
+						$rand_color_rgb = $rand_color_array[rand(0, count($rand_color_array)-1)];
+					} else {
+						$rand_color_rgb = array('R'=>rand(0, 100), 'G'=>rand(0, 150), 'B'=>rand(0, 200));				
+					}
+
+					return $rand_color_rgb;
+				}
+				]]>
+			</add>
+		</operation>
+	</file>
+
+	<file name="catalog/controller/product/product.php">
+		<operation>
+			<search position="replace"><![CDATA[
+				$captcha->showImage();			
+			]]>
+			</search>
+			<add><![CDATA[
+				//use new Image style
+				//$captcha->showImage();
+				$captcha->setHeight(110);
+				$captcha->showAuthImage();
+			]]>
+			</add>
+		</operation>
+	</file>
+</modification>
