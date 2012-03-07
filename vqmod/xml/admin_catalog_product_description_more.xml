@@ -1,0 +1,140 @@
+<modification>
+	<id>manage more product description on the admin product detail page</id>
+	<version>1.0.0</version>
+	<vqmver>1.0.1</vqmver>
+	<author>manlianxiao3@126.com</author>
+	<file name="admin/view/template/catalog/product_form.tpl">
+		<operation>
+			<search position="before" offset="1"><![CDATA[
+					<td><?php echo $entry_description; ?></td>
+				]]>
+			</search>
+			<add><![CDATA[
+					<tr>
+						<td>
+							<?php echo $entry_summary_description; ?>
+							<div class="image"><img src="<?php echo $thumb; ?>" alt="" id="thumb" /></div>
+						</td>
+						<td><textarea name="product_description[<?php echo $language['language_id']; ?>][summary_desc]" id="summary_desc<?php echo $language['language_id']; ?>"><?php echo isset($product_description[$language['language_id']]) ? $product_description[$language['language_id']]['summary_desc'] : ''; ?></textarea></td>
+					</tr>
+					<tr>
+						<td>
+							<?php echo $entry_functional_description; ?>
+							<div class="image"><img src="<?php echo $thumb; ?>" alt="" id="thumb" /></div>
+						</td>
+						 <td><textarea name="product_description[<?php echo $language['language_id']; ?>][function_desc]" id="function_desc<?php echo $language['language_id']; ?>"><?php echo isset($product_description[$language['language_id']]) ? $product_description[$language['language_id']]['function_desc'] : ''; ?></textarea></td>
+					 </tr>
+					 <tr>
+						 <td>
+							 <?php echo $entry_style_description; ?>
+							 <div class="image"><img src="<?php echo $thumb; ?>" alt="" id="thumb" /></div>
+						 </td>
+						  <td><textarea name="product_description[<?php echo $language['language_id']; ?>][style_desc]" id="style_desc<?php echo $language['language_id']; ?>"><?php echo isset($product_description[$language['language_id']]) ? $product_description[$language['language_id']]['style_desc'] : ''; ?></textarea></td>
+					</tr>
+				]]>
+			</add>
+		</operation>
+		<operation>
+			<search position="before"><![CDATA[
+					CKEDITOR.replace('description<?php echo $language['language_id']; ?>', {
+				]]>
+			</search>
+			<add><![CDATA[
+					CKEDITOR.replace('summary_desc<?php echo $language['language_id']; ?>', {
+						filebrowserBrowseUrl: 'index.php?route=common/filemanager&token=<?php echo $token; ?>',
+						filebrowserImageBrowseUrl: 'index.php?route=common/filemanager&token=<?php echo $token; ?>',
+						filebrowserFlashBrowseUrl: 'index.php?route=common/filemanager&token=<?php echo $token; ?>',
+						filebrowserUploadUrl: 'index.php?route=common/filemanager&token=<?php echo $token; ?>',
+						filebrowserImageUploadUrl: 'index.php?route=common/filemanager&token=<?php echo $token; ?>',
+						filebrowserFlashUploadUrl: 'index.php?route=common/filemanager&token=<?php echo $token; ?>'
+					});
+					CKEDITOR.replace('function_desc<?php echo $language['language_id']; ?>', {
+						filebrowserBrowseUrl: 'index.php?route=common/filemanager&token=<?php echo $token; ?>',
+						filebrowserImageBrowseUrl: 'index.php?route=common/filemanager&token=<?php echo $token; ?>',
+						filebrowserFlashBrowseUrl: 'index.php?route=common/filemanager&token=<?php echo $token; ?>',
+						filebrowserUploadUrl: 'index.php?route=common/filemanager&token=<?php echo $token; ?>',
+						filebrowserImageUploadUrl: 'index.php?route=common/filemanager&token=<?php echo $token; ?>',
+						filebrowserFlashUploadUrl: 'index.php?route=common/filemanager&token=<?php echo $token; ?>'
+					});
+					CKEDITOR.replace('style_desc<?php echo $language['language_id']; ?>', {
+						filebrowserBrowseUrl: 'index.php?route=common/filemanager&token=<?php echo $token; ?>',
+						filebrowserImageBrowseUrl: 'index.php?route=common/filemanager&token=<?php echo $token; ?>',
+						filebrowserFlashBrowseUrl: 'index.php?route=common/filemanager&token=<?php echo $token; ?>',
+						filebrowserUploadUrl: 'index.php?route=common/filemanager&token=<?php echo $token; ?>',
+						filebrowserImageUploadUrl: 'index.php?route=common/filemanager&token=<?php echo $token; ?>',
+						filebrowserFlashUploadUrl: 'index.php?route=common/filemanager&token=<?php echo $token; ?>'
+					});
+				]]>
+			</add>
+		</operation>
+	</file>
+
+	<file name="admin/language/english/catalog/product.php">
+		<operation>
+			<search position="before"><![CDATA[
+					$_['entry_description']      = 'Description:';
+				]]>
+			</search>
+			<add><![CDATA[
+					//add more description
+					$_['entry_summary_description']      	= 'Summary Description:';
+					$_['entry_functional_description']      = 'Functional Description:';
+					$_['entry_style_description']      	= 'Style Description:';
+				]]>
+			</add>
+		</operation>
+		<operation>
+			<search position="replace"><![CDATA[
+					$_['entry_description']      = 'Description:';
+				]]>
+			</search>
+			<add><![CDATA[
+					//replace for more description
+					$_['entry_description']      = 'Description:<br /><span class="help">Optional</span>';
+				]]>
+			</add>
+		</operation>
+	</file>
+
+	<file name="admin/controller/catalog/product.php">
+		<operation>
+			<search position="before"><![CDATA[
+					$this->data['entry_description'] = $this->language->get('entry_description');
+				]]>
+			</search>
+			<add><![CDATA[
+					//add for more descrption
+					$this->data['entry_summary_description']    = $this->language->get('entry_summary_description');
+					$this->data['entry_functional_description'] = $this->language->get('entry_functional_description');
+					$this->data['entry_style_description']      = $this->language->get('entry_style_description');
+				]]>
+			</add>
+		</operation>
+	</file>
+
+	<file name="admin/model/catalog/product.php">
+		<operation>
+			<search position="before"><![CDATA[
+					'meta_keyword'     => $result['meta_keyword'],
+				]]>
+			</search>
+			<add><![CDATA[
+					'summary_desc'      => $result['summary_desc'], //added for more description
+					'function_desc'     => $result['function_desc'], //added for more description
+					'style_desc'        => $result['style_desc'], //added for more description
+				]]>
+			</add>
+		</operation>
+		<operation>
+			<search position="replace"><![CDATA[
+					$this->db->query("INSERT INTO " . DB_PREFIX . "product_description SET product_id = '" . (int)$product_id . "', language_id = '" . (int)$language_id . "', name = '" . $this->db->escape($value['name']) . "', meta_keyword = '" . $this->db->escape($value['meta_keyword']) . "', meta_description = '" . $this->db->escape($value['meta_description']) . "', description = '" . $this->db->escape($value['description']) . "'");
+				]]>
+			</search>
+			<add><![CDATA[
+					//add more desc fileds(summary_desc, function_desc, style_desc)
+					$this->db->query("INSERT INTO " . DB_PREFIX . "product_description SET product_id = '" . (int)$product_id . "', language_id = '" . (int)$language_id . "', name = '" . $this->db->escape($value['name']) . "', meta_keyword = '" . $this->db->escape($value['meta_keyword']) . "', meta_description = '" . $this->db->escape($value['meta_description']) . "', description = '" . $this->db->escape($value['description']) . "', summary_desc = '" . $this->db->escape($value['summary_desc']) . "', function_desc = '" . $this->db->escape($value['function_desc']) . "', style_desc = '" . $this->db->escape($value['style_desc']) ."'");
+				]]>
+			</add>
+		</operation>
+	</file>
+</modification>
