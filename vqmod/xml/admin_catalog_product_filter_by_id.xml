@@ -1,0 +1,172 @@
+<modification>
+	<id>Add Admin Product filter_id</id>
+	<version>1.0</version>
+	<vqmver>1.1.0</vqmver>
+	<author>manlianxiao3@126.com</author>
+
+	<file name="admin/view/template/catalog/product_list.tpl">
+		<operation>
+			<search position="after"><![CDATA[
+					<td class="center"><?php echo $column_image; ?></td>	
+				]]>
+			</search>
+			<add><![CDATA[
+				<td class="left"><?php if ($sort == 'p.product_id') { ?>
+					<a href="<?php echo $sort_id; ?>" class="<?php echo strtolower($order); ?>"><?php echo $column_product_id; ?></a>
+					<?php } else { ?>
+					<a href="<?php echo $sort_id; ?>"><?php echo $column_product_id; ?></a>
+				<?php } ?></td>
+				]]>
+			</add>
+		</operation>
+		
+		<operation>
+			<search position="before"><![CDATA[
+					<td><input type="text" name="filter_name" value="<?php echo $filter_name; ?>" /></td>
+				]]>
+			</search>
+			<add><![CDATA[
+					<td><input type="text" name="filter_id" value="<?php echo $filter_id; ?>" /></td>
+				]]>
+			</add>
+		</operation>
+		
+		<operation>
+			<search position="after"><![CDATA[
+					url = 'index.php?route=catalog/product&token=<?php echo $token; ?>';
+				]]>
+			</search>
+			<add><![CDATA[
+					var filter_id = $('input[name=\'filter_id\']').attr('value');
+					
+					if (filter_id) {
+						url += '&filter_id=' + encodeURIComponent(filter_id);
+					}
+				]]>
+			</add>
+		</operation>
+		
+		<operation>
+			<search position="before"><![CDATA[
+					 <td class="left"><?php echo $product['name']; ?></td>
+				]]>
+			</search>
+			<add><![CDATA[
+					 <td class="left"><?php echo $product['product_id']; ?></td>
+				]]>
+			</add>
+		</operation>
+	</file>
+
+	<file name="admin/controller/catalog/product.php">
+		<operation>
+			<search position="before"><![CDATA[
+					$this->data['column_name'] = $this->language->get('column_name');		
+				]]>
+			</search>
+			<add><![CDATA[
+					$this->data['column_product_id'] = $this->language->get('column_product_id');
+				]]>
+			</add>
+		</operation>
+		
+		<operation>
+			<search position="before"><![CDATA[
+					$this->data['sort_name'] = $this->url->link('catalog/product', 'token=' . $this->session->data['token'] . '&sort=pd.name' . $url, 'SSL');				]]>
+			</search>
+			<add><![CDATA[
+					$this->data['sort_id'] = $this->url->link('catalog/product', 'token=' . $this->session->data['token'] . '&sort=p.product_id' . $url, 'SSL');
+				]]>
+			</add>
+		</operation>
+		
+		<operation>
+			<search position="after"><![CDATA[
+					$url = '';
+				]]>
+			</search>
+			<add><![CDATA[
+					if (isset($this->request->get['filter_id'])) {
+						$url .= '&filter_id=' . $this->request->get['filter_id'];
+					}		
+				]]>
+			</add>
+		</operation>
+		
+		<operation>
+			<search position="after"><![CDATA[
+					private function getList() {					
+				]]>
+			</search>
+			<add><![CDATA[
+					if (isset($this->request->get['filter_id'])) {
+						$filter_id = $this->request->get['filter_id'];
+					} else {
+						$filter_id = null;
+					}		
+				]]>
+			</add>
+		</operation>
+		
+		<operation>
+			<search position="after"><![CDATA[
+					'filter_status'   => $filter_status,
+				]]>
+			</search>
+			<add><![CDATA[
+					'filter_id'	  	      => $filter_id,
+				]]>
+			</add>
+		</operation>
+		
+		<operation>
+			<search position="after"><![CDATA[
+					'filter_sub_category' => $filter_sub_category,
+				]]>
+			</search>
+			<add><![CDATA[
+					'filter_id'	  	      => $filter_id,
+				]]>
+			</add>
+		</operation>
+		
+		<operation>
+			<search position="before"><![CDATA[
+					$this->data['filter_name'] = $filter_name;
+				]]>
+			</search>
+			<add><![CDATA[
+					$this->data['filter_id'] = $filter_id;
+				]]>
+			</add>
+		</operation>
+	</file>
+	
+	<file name="admin/language/english/catalog/product.php">
+		<operation>
+			<search position="before"><![CDATA[
+					$_['column_name']            = 'Product Name';
+				]]>
+			</search>
+			<add><![CDATA[
+					$_['column_product_id']      = 'Product ID';
+				]]>
+			</add>
+		</operation>
+	</file>
+	
+	<file name="admin/model/catalog/product.php">
+		<operation>
+			<search position="before"><![CDATA[
+					if (!empty($data['filter_name'])) {
+				]]>
+			</search>
+			<add><![CDATA[
+					if (isset($data['filter_id'])  && !is_null($data['filter_id'])) {
+						$sql .= " AND p.product_id LIKE '" . $this->db->escape($data['filter_id']) . "%'";
+					}
+				]]>
+			</add>
+		</operation>
+	</file>	
+</modification>

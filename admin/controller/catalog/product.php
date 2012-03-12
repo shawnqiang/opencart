@@ -38,12 +38,6 @@ class ControllerCatalogProduct extends Controller {
 				$url .= '&filter_price=' . $this->request->get['filter_price'];
 			}
 			
-			//filter category start//
-			if (isset($this->request->get['filter_category'])) {
-                $url .= '&filter_category=' . $this->request->get['filter_category'];
-            }
-			//filter category end//
-			
 			if (isset($this->request->get['filter_quantity'])) {
 				$url .= '&filter_quantity=' . $this->request->get['filter_quantity'];
 			}
@@ -95,12 +89,6 @@ class ControllerCatalogProduct extends Controller {
 			if (isset($this->request->get['filter_price'])) {
 				$url .= '&filter_price=' . $this->request->get['filter_price'];
 			}
-			
-			//filter category start//
-			if (isset($this->request->get['filter_category'])) {
-                $url .= '&filter_category=' . $this->request->get['filter_category'];
-            }
-			//filter category end//
 			
 			if (isset($this->request->get['filter_quantity'])) {
 				$url .= '&filter_quantity=' . $this->request->get['filter_quantity'];
@@ -210,13 +198,6 @@ class ControllerCatalogProduct extends Controller {
 				$url .= '&filter_price=' . $this->request->get['filter_price'];
 			}
 			
-			//filter category start//
-			if (isset($this->request->get['filter_category'])) {
-                $url .= '&filter_category=' . $this->request->get['filter_category'];
-            }
-            //filter category end//
-			
-			
 			if (isset($this->request->get['filter_quantity'])) {
 				$url .= '&filter_quantity=' . $this->request->get['filter_quantity'];
 			}	
@@ -262,14 +243,6 @@ class ControllerCatalogProduct extends Controller {
 			$filter_price = null;
 		}
 
-		//filter category start//
-		if (isset($this->request->get['filter_category'])) {
-			$filter_category = $this->request->get['filter_category'];
-		} else {
-			$filter_category = NULL;
-		}
-        //filter category end//
-		
 		if (isset($this->request->get['filter_quantity'])) {
 			$filter_quantity = $this->request->get['filter_quantity'];
 		} else {
@@ -313,12 +286,6 @@ class ControllerCatalogProduct extends Controller {
 		if (isset($this->request->get['filter_price'])) {
 			$url .= '&filter_price=' . $this->request->get['filter_price'];
 		}
-		
-		//filter category start//
-		if (isset($this->request->get['filter_category'])) {
-			$url .= '&filter_category=' . $this->request->get['filter_category'];
-		}
-        //filter category end//
 		
 		if (isset($this->request->get['filter_quantity'])) {
 			$url .= '&filter_quantity=' . $this->request->get['filter_quantity'];
@@ -364,9 +331,6 @@ class ControllerCatalogProduct extends Controller {
 			'filter_name'	  => $filter_name, 
 			'filter_model'	  => $filter_model,
 			'filter_price'	  => $filter_price,
-			//filter category start//
-            'filter_category' => $filter_category,
-			// End
 			'filter_quantity' => $filter_quantity,
 			'filter_status'   => $filter_status,
 			'sort'            => $sort,
@@ -378,15 +342,9 @@ class ControllerCatalogProduct extends Controller {
 		$this->load->model('tool/image');
 		
 		$product_total = $this->model_catalog_product->getTotalProducts($data);
-
+			
 		$results = $this->model_catalog_product->getProducts($data);
-		
-		//filter category start//
-		$this->load->model('catalog/category');
-		$this->data['categories'] = $this->model_catalog_category->getCategories(0);
-        //filter category end//
-		
-		
+				    	
 		foreach ($results as $result) {
 			$action = array();
 			
@@ -395,14 +353,10 @@ class ControllerCatalogProduct extends Controller {
 				'href' => $this->url->link('catalog/product/update', 'token=' . $this->session->data['token'] . '&product_id=' . $result['product_id'] . $url, 'SSL')
 			);
 			
-			//filter category start//
-            $category =  $this->model_catalog_product->getProductCategories($result['product_id']);
-            //filter category end//
-			
 			if ($result['image'] && file_exists(DIR_IMAGE . $result['image'])) {
-				$image = $this->model_tool_image->resize($result['image'], 40, 40);
+				$image = $this->model_tool_image->resize($result['image'], 80, 80);
 			} else {
-				$image = $this->model_tool_image->resize('no_image.jpg', 40, 40);
+				$image = $this->model_tool_image->resize('no_image.jpg', 80, 80);
 			}
 	
 			$special = false;
@@ -423,9 +377,6 @@ class ControllerCatalogProduct extends Controller {
 				'model'      => $result['model'],
 				'price'      => $result['price'],
 				'special'    => $special,
-				//filter category start//
-				'category'   => $category,
-                //filter category end//
 				'image'      => $image,
 				'quantity'   => $result['quantity'],
 				'status'     => ($result['status'] ? $this->language->get('text_enabled') : $this->language->get('text_disabled')),
@@ -442,10 +393,7 @@ class ControllerCatalogProduct extends Controller {
 		$this->data['text_image_manager'] = $this->language->get('text_image_manager');		
 			
 		$this->data['column_image'] = $this->language->get('column_image');		
-		$this->data['column_name'] = $this->language->get('column_name');	
-		// Add
-		$this->data['column_category'] = $this->language->get('column_category');		
-		// End add
+		$this->data['column_name'] = $this->language->get('column_name');		
 		$this->data['column_model'] = $this->language->get('column_model');		
 		$this->data['column_price'] = $this->language->get('column_price');		
 		$this->data['column_quantity'] = $this->language->get('column_quantity');		
@@ -506,9 +454,6 @@ class ControllerCatalogProduct extends Controller {
 		}
 					
 		$this->data['sort_name'] = $this->url->link('catalog/product', 'token=' . $this->session->data['token'] . '&sort=pd.name' . $url, 'SSL');
-		//filter category start//
-        $this->data['sort_category'] = $this->url->link('catalog/product', 'token=' . $this->session->data['token'] . '&sort=p2c.category' . $url, 'SSL');
-        //filter category end//
 		$this->data['sort_model'] = $this->url->link('catalog/product', 'token=' . $this->session->data['token'] . '&sort=p.model' . $url, 'SSL');
 		$this->data['sort_price'] = $this->url->link('catalog/product', 'token=' . $this->session->data['token'] . '&sort=p.price' . $url, 'SSL');
 		$this->data['sort_quantity'] = $this->url->link('catalog/product', 'token=' . $this->session->data['token'] . '&sort=p.quantity' . $url, 'SSL');
@@ -528,12 +473,6 @@ class ControllerCatalogProduct extends Controller {
 		if (isset($this->request->get['filter_price'])) {
 			$url .= '&filter_price=' . $this->request->get['filter_price'];
 		}
-		
-		// Add
-        if (isset($this->request->get['filter_category'])) {
-			$url .= '&filter_category=' . $this->request->get['filter_category'];
-		}
-        // End add
 		
 		if (isset($this->request->get['filter_quantity'])) {
 			$url .= '&filter_quantity=' . $this->request->get['filter_quantity'];
@@ -563,9 +502,6 @@ class ControllerCatalogProduct extends Controller {
 		$this->data['filter_name'] = $filter_name;
 		$this->data['filter_model'] = $filter_model;
 		$this->data['filter_price'] = $filter_price;
-		// Add
-        $this->data['filter_category'] = $filter_category;
-        // End add
 		$this->data['filter_quantity'] = $filter_quantity;
 		$this->data['filter_status'] = $filter_status;
 		
@@ -707,13 +643,7 @@ class ControllerCatalogProduct extends Controller {
 		}	
 
 		$url = '';
-		
-		//filter category start//
-		if (isset($this->request->get['filter_category'])) {
-			$url .= '&filter_category=' . $this->request->get['filter_category'];
-		}
-        //filter category end//
-		
+
 		if (isset($this->request->get['filter_name'])) {
 			$url .= '&filter_name=' . $this->request->get['filter_name'];
 		}

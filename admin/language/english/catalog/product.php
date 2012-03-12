@@ -26,9 +26,6 @@ $_['column_action']          = 'Action';
 
 // Entry
 $_['entry_name']             = 'Product Name:';
-// Add
-$_['column_category']        = 'Category';
-// End add
 $_['entry_meta_keyword'] 	 = 'Meta Tag Keywords:';
 $_['entry_meta_description'] = 'Meta Tag Description:';
 $_['entry_description']      = 'Description:';
@@ -69,7 +66,7 @@ $_['entry_sort_order']       = 'Sort Order:';
 $_['entry_category']         = 'Categories:';
 $_['entry_download']         = 'Downloads:';
 $_['entry_related']          = 'Related Products:<br /><span class="help">(Autocomplete)</span>';
-$_['entry_tag']          	 = 'Product Tags:<br /><span class="help">comma separated</span>';
+$_['entry_tag']              = 'Product Tags:<br /><span class="help">comma separated</span>';
 $_['entry_reward']           = 'Reward Points:';
 $_['entry_layout']           = 'Layout Override:';
 
